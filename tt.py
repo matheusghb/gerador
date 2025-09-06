@@ -10,168 +10,269 @@ def pegar_cr(dif,player,tier):
     tv = tv//1
     return tv + (dif*player)
 
-def lista_random(dif):
+def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
+    result = ''
+
     oque = random.choices([
-        'suprimir',
-        'contatar',
-        'moldar'
+        'Supress',
+        'Contact',
+        'Mold'
     ])
-    oque = oque[0]
+    result = "===> " + result + oque[0]
+
     quem = random.choices([
         's',
         'e',
         'o'
     ])
-    quem = quem[0]
 
-    qmod = random.randrange(1,4)
+    if f1 == True:
+        chance = random.randrange(1,101)
 
-    if qmod < 3:
-        qmod = ''
-    else:
-        if quem == 's':
-            qmod = random.choices(['sozinho','nervoso',])
-        elif quem == 'e':
-            qmod = random.choices(['grande','pequeno','repentino','devastador'])
-        elif quem == 'o':
-            qmod = random.choices(['antigo','místico','poderoso','quebrado'])
-        qmod = qmod[0] + ' '
+        if chance <= mdchnc:
+            if quem[0] == 's':
+                qmod = random.choices(['crazed',
+                                    'sick',
+                                    'persecuted',
+                                    ])
+            elif quem[0] == 'e':
+                qmod = random.choices(['grande',
+                                    'pequeno',
+                                    'repentino',
+                                    'devastador'])
+            elif quem[0] == 'o':
+                qmod = random.choices(['cursed',
+                                    'Juju',
+                                    'stolen',
+                                    'magical'])
+            qmod = qmod[0]
+
+            if qmod[0] in ['a','e','i','o','u']:
+                result = result + ' an ' + qmod
+            else:
+                result = result + ' a ' + qmod
     
-    if quem == 's':
+    if quem[0] == 's':
         quem = random.choices(['consort',
-                               'agente de Derse',
-                               'agente de Prospit',
+                               'Derse agent',
+                               'Prospit agent',
                                'imp',
                                'sprite',
-                               'efeito de um Denizen',
-                               'efeito de um Horrorterror'])
-    elif quem == 'e':
+                               'amphibian',
+                               'reptile',
+                               'bird',
+                               'fungus',
+                               'fish',
+                               'crustacian',
+                               'lusus',
+                               'android',
+                               'crustacian',
+                               'feline',
+                               'insect',
+                            ])
+    elif quem[0] == 'e':
         quem = random.choices(['mania',
-                               'influência',
-                               'conspiração',
-                               'tempestade',
-                               'invasão',
-                               'efeito de Derse',
-                               'efeito de Prospit',
-                               'efeito de Heart',
-                               'efeito de Mind',
-                               'efeito de Blood',
-                               'efeito de Breath',
-                               'efeito de Light',
-                               'efeito de Void',
-                               'efeito de Doom',
-                               'efeito de Life',
-                               'efeito de Rage',
-                               'efeito de Hope',
-                               'efeito de Space',
-                               'efeito de Time',])
-    elif quem == 'o':
-        quem = random.choices(['relíquia',
-                               'objeto amaldiçoado',
-                               'acessório especial'])
+                               'influence',
+                               'conspiracy',
+                               'storm',
+                               'invasion',
+                               "'s doing",
+                               ])
+    elif quem[0] == 'o':
+        quem = random.choices(['eletronics',
+                               'fruit',
+                               'tool',
+                               'weapon',
+                               'key',
+                               'egg',
+                               'potion',
+                               'gem',
+                               'wand',
+                               'book',
+                               'painting',
+                               'sphere',
+                               'clothing',
+                               'dool',
+                               'toy',
+                               'video game',
+                               'musical instrument',
+                               'liquid',
+                               ])
+        
+    if quem[0] == "'s doing":
+        quem = random.choices(['Derse',
+                               'Prospit',
+                               'Horrorterror',
+                               'Denizen'
+                               'Skaia',
+                               'Heart',
+                               'Mind'
+                               'Space',
+                               'Time'
+                               'Breath',
+                               'Blood',
+                               'Doom'
+                               'Life',
+                               'Void',
+                               'Light',
+                               'Rage',
+                               'Hope'])
+        quem = quem[0] + "'s doing"
     quem = quem[0]
 
-    porque = random.choices(['autopreservação',
-                             'interesse material',
-                             'competição'])
-    porque = porque[0]
-
-    ondel = random.randrange(1,3)
-    if ondel == 1:
-        ondel = random.choices([
-            'um estabelecimento comercial',
-            'uma residência',
-            'uma ponte',
-            'um parque',
-            'um circo',
-            'um hospital',
-            'uma escola',
-            'um porto',
-            'um museu',
-            'um metro',
-            'uma mansão',
-            'um zoológico',
-            'uma biblioteca',
-            'um túnel subterrâneo',
-            'uma prisão',
-            'uma delegacia',
-            'um castelo'
-        ])
-        
-    else:
-        ondel = random.choices([
-            'uma fazenda',
-            'uma chácara pequena',
-            'um lago',
-            'uma praia',
-            'uma cachoeira',
-            'um vão de duas montanhas',
-            'um topo de uma montanha',
-            'ruínas de uma construção',
-            'uma caverna',
-            'um oásis',
-            'uma ilha',
-            'uma floresta densa',
-        ])
-    ondel = ondel[0]
-
-    ondeh = random.choices(['a madrugada',
-                            'a manhã',
-                            'a tarde',
-                            'a noite'])
-    ondeh = ondeh[0]
-    i = 0
-    como = ''
-    t = ''
-    meta = int((dif*1.5)//1)
-    while i < meta:
-        t = random.choices([
-            'atletismo',
-            'resistência',
-            'acrobacia',
-            'prestidigitação',
-            'furtividade',
-            'engenharia',
-            'investigação',
-            'ocultismo',
-            'adestramento',
-            'intuição',
-            'medicina',
-            'percepção',
-            'sanidade',
-            'sobrevivência',
-            'enganação',
-            'intimidação',
-            'artes',
-            'diplomacia',
-        ])
-        if t[0] in como != ValueError:
-            pass
+    if f1 == False or chance > mdchnc:
+        if quem[0] in ['a','e','i','o','u']:
+            result = result + ' an ' + quem
         else:
-            if i < meta-1:
-                como += t[0] + ', '
-            else:
-                if i < 2:
-                    como += t[0] + '.'
-                else:
-                    como += 'e ' + t[0] + '.'
-            i = i+1
+            result = result + ' a ' + quem
+    else:
+        result = result + ' ' + quem
 
-    return [oque,quem,qmod,porque,ondel,ondeh,como]
+    if f2 == True:
+        porque = random.choices(['self preservation',
+                                'material interest',
+                                'a competition'])
+        result = result + ' for ' + porque[0]
+
+    if f3 == True:
+        ondel = random.randrange(1,3)
+        if ondel == 1:
+            ondel = random.choices([
+                'shop',
+                'house',
+                'bridge',
+                'park',
+                'circus',
+                'hospital',
+                'school',
+                'harbor',
+                'museum',
+                'metro station',
+                'mansion',
+                'zoo',
+                'library',
+                'underground tunnel',
+                'prison',
+                'police station',
+                'castle'
+            ])
+            
+        else:
+            ondel = random.choices([
+                'farm',
+                'abandoned house',
+                'lake',
+                'beach',
+                'waterfall',
+                'mountain',
+                'ruins',
+                'cave',
+                'desert',
+                'island',
+                'dense forest',
+            ])
+        ondel = ondel[0]
+        if ondel[0] in ['a','e','i','o','u']:
+            result = result + ' in an ' + ondel
+        else:
+            result = result + ' in a ' + ondel
+            
+    
+
+    if f4 == True:
+        ondeh = random.choices(['dawn',
+                                'morning',
+                                'afternoon',
+                                'night'])
+        result = result + ' during the ' + ondeh[0] + '.'
+    
+    if result[len(result)-1] != '.':
+        result = result + '.'
+
+    if f5 == True:
+
+        i = 0
+        como = ''
+        t = ''
+        meta = int((dif*1.5)//1)
+        while i < meta:
+            t = random.choices([
+                'athletics',
+                'endurance',
+                'acrobatics',
+                'sleight of hand',
+                'sleath',
+                'engineering',
+                'investigation',
+                'occult',
+                'animal handling',
+                'insight',
+                'medicine',
+                'perception',
+                'sanity',
+                'survival',
+                'deception',
+                'intimidation',
+                'performance',
+                'persuasion',
+            ])
+            if t[0] not in como:
+                if i < meta-1:
+                    como += t[0] + ', '
+                else:
+                    if i < 2:
+                        como += t[0]
+                    else:
+                        como += 'and ' + t[0]
+                i = i+1
+        result = result + '\nOne should expect use of ' + como + '.'
+    
+    return result
 
 tl = []
-d = int(input("Defina a dificuldade da missão desejada, de 1 a 4: "))
-p = int(input("Defina a quantidade de jogadores: "))
+d = int(input("Define the difficulty of your mission, from 1 to 4: "))
+p = int(input("Define the player quantity: "))
 for i in range(p):
-    tt = int(input("Adicione a Tier do jogador %i: "%(i+1)))
+    tt = int(input("Define the %i's player tier: "%(i+1)))
     tl.append(float(tt))    
 t = float(sum(tl)//p)
 cr = pegar_cr(d,p,t)
-print('É uma missão de Tier %i com CR %i.'%(t,cr))
+print("It's a Tier %i mission with CR %i.\n"%(t,cr))
 
-flag = 0
-while flag == 0:
-    rndm = lista_random(d)
-    print('Sua missão é: %s tal %s %spor motivos de %s. A missão vai acontecer em %s, durante %s.\n'
-    'Se espera que tenha muito de %s'%(rndm[0],rndm[1],rndm[2],rndm[3],rndm[4],rndm[5],rndm[6]))
-    flag = int(input(f'Você está de acordo?\n0 - Não\n1 - Sim\n'))
+flag1 = 0
+f = [True, True, True, True, True]
+modchnc = 33
+print(lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+
+while flag1 == 0:   
+    opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
+    if opc == 1:
+        print(lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+    if opc == 2:
+        flag2 = 1
+        while flag2 == 1:
+                print(f'''Choose an option to manage:
+                      
+1 - [Who?] modifier ({f[0]} at the moment)
+2 - [Why?] ({f[1]} at the moment)
+3 - [Where?] ({f[2]} at the moment)
+4 - [When?] ({f[3]} at the moment)
+5 - [How?] ({f[4]}% at the moment)
+6 - Change [Who?] modifier percentage ({modchnc} at the moment)
+7 - Cancel''')
+                n = int(input("\n=> ")) 
+                if n < len(f)+1:
+                    f[n-1] = not f[n-1]
+                    break
+                elif n == 6:
+                    modchnc = int(input(f'''Add the percentage you wish to use.
+=> '''))
+                    break
+                elif n == 7:
+                    break
+                else:
+                    print ('%i is not an available option.'%(n))
+                    break
+    if opc == 3:
+        print('Ending program.')
+        break
