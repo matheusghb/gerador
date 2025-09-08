@@ -232,54 +232,70 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
         result = result + '\nOne should expect use of ' + como + '.'
     
     return result
+op = 0
+while op != 3:
+    op = int(input('\nWhat do you wish to do?\n1 - Generate a session\n2 - Choose a random enemy\n3 - Turn off\n==> '))
+    if op == 1:
+        tl = []
+        d = int(input("Define the difficulty of your mission, from 1 to 5: "))
+        p = int(input("Define the player quantity: "))
+        for i in range(p):
+            tt = int(input("Define the %i's player tier: "%(i+1)))
+            tl.append(float(tt))    
+        t = float(sum(tl)//p)
+        cr = pegar_cr(d,p,t)
+        print("It's a Tier %i mission with CR %i.\n"%(t,cr))
 
-tl = []
-d = int(input("Define the difficulty of your mission, from 1 to 5: "))
-p = int(input("Define the player quantity: "))
-for i in range(p):
-    tt = int(input("Define the %i's player tier: "%(i+1)))
-    tl.append(float(tt))    
-t = float(sum(tl)//p)
-cr = pegar_cr(d,p,t)
-print("It's a Tier %i mission with CR %i.\n"%(t,cr))
-
-flag1 = 0
-f = [True, True, True, True, True]
-modchnc = 33
-print('You have this players: ')
-for i in range(p):
-    print(f'The {i+1}s player is tier {int(tl[i])}.')
-print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
-
-while flag1 == 0:   
-    opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
-    if opc == 1:
+        flag1 = 0
+        f = [True, True, True, True, True]
+        modchnc = 33
+        print('You have this players: ')
+        for i in range(p):
+            print(f'The {i+1}s player is tier {int(tl[i])}.')
         print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
-    if opc == 2:
-        flag2 = 1
-        while flag2 == 1:
-                print(f'''Choose an option to manage:
-                      
-1 - [Who?] modifier ({f[0]} at the moment)
-2 - [Why?] ({f[1]} at the moment)
-3 - [Where?] ({f[2]} at the moment)
-4 - [When?] ({f[3]} at the moment)
-5 - [How?] ({f[4]}% at the moment)
-6 - Change [Who?] modifier percentage ({modchnc} at the moment)
-7 - Cancel''')
-                n = int(input("\n=> ")) 
-                if n < len(f)+1:
-                    f[n-1] = not f[n-1]
-                    break
-                elif n == 6:
-                    modchnc = int(input(f'''Add the percentage you wish to use.
-=> '''))
-                    break
-                elif n == 7:
-                    break
-                else:
-                    print ('%i is not an available option.'%(n))
-                    break
-    if opc == 3:
-        print('Ending program.')
-        break
+
+        while flag1 == 0:   
+            opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
+            if opc == 1:
+                print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+            if opc == 2:
+                flag2 = 1
+                while flag2 == 1:
+                        print(f'''Choose an option to manage:
+                            
+        1 - [Who?] modifier ({f[0]} at the moment)
+        2 - [Why?] ({f[1]} at the moment)
+        3 - [Where?] ({f[2]} at the moment)
+        4 - [When?] ({f[3]} at the moment)
+        5 - [How?] ({f[4]}% at the moment)
+        6 - Change [Who?] modifier percentage ({modchnc} at the moment)
+        7 - Cancel''')
+                        n = int(input("\n=> ")) 
+                        if n < len(f)+1:
+                            f[n-1] = not f[n-1]
+                            break
+                        elif n == 6:
+                            modchnc = int(input(f'''Add the percentage you wish to use.
+        => '''))
+                            break
+                        elif n == 7:
+                            break
+                        else:
+                            print ('%i is not an available option.'%(n))
+                            break
+            if opc == 3:
+                print('Ending program.')
+                break
+    if op == 2:
+        flg = 0
+        while flg == 0:
+            try:
+                ty = int(input("\nDefine the desired type between:\n1 - Underling\n2 - Consorts\n3 - Caraspacians\n4 - Any\n==> "))
+                t = int(input("\nDefine the desired Tier (input words if any)\n==> "))
+                if ty == 2 and t > 2:
+                    raise Exception("Consorts do not go above T2.")
+            except:
+                print('Try again.')
+            else:
+                c = int(input("\nDefine the desired CR between 1 and 3 (input words if any)\n==> "))
+
