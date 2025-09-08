@@ -34,17 +34,21 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
                 qmod = random.choices(['crazed',
                                     'sick',
                                     'persecuted',
+                                    'enraged',
+                                    'confused',
+                                    'framed'
                                     ])
             elif quem[0] == 'e':
-                qmod = random.choices(['grande',
-                                    'pequeno',
-                                    'repentino',
-                                    'devastador'])
+                qmod = random.choices(['brief',
+                                    'huge',
+                                    'enigmatic',
+                                    'sudden'])
             elif quem[0] == 'o':
                 qmod = random.choices(['cursed',
                                     'Juju',
                                     'stolen',
-                                    'magical'])
+                                    'magical',
+                                    'lost'])
             qmod = qmod[0]
 
             if qmod[0] in ['a','e','i','o','u']:
@@ -230,7 +234,7 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
     return result
 
 tl = []
-d = int(input("Define the difficulty of your mission, from 1 to 4: "))
+d = int(input("Define the difficulty of your mission, from 1 to 5: "))
 p = int(input("Define the player quantity: "))
 for i in range(p):
     tt = int(input("Define the %i's player tier: "%(i+1)))
@@ -242,12 +246,15 @@ print("It's a Tier %i mission with CR %i.\n"%(t,cr))
 flag1 = 0
 f = [True, True, True, True, True]
 modchnc = 33
-print(lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+print('You have this players: ')
+for i in range(p):
+    print(f'The {i+1}s player is tier {int(tl[i])}.')
+print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
 
 while flag1 == 0:   
     opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
     if opc == 1:
-        print(lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+        print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
     if opc == 2:
         flag2 = 1
         while flag2 == 1:
