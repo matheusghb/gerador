@@ -1,14 +1,17 @@
 import random
 
 def pegar_cr(dif,player,tier):
-    tv = float(tier)
-    for i in range(player-1):
-        if tl[i+1] > tier:
-            tv = tv + (tier*.5 + (tl[i+1])-tier)
-        elif tl[i+1] == tier:
-            tv = tv + tier*.25
-    tv = tv//1
-    return tv + (dif*player)
+    if player > 1:
+        tv = float(tier)
+        for i in range(player-1):
+            if tl[i+1] > tier:
+                tv = tv + (tier*.5 + (tl[i+1])-tier)
+            elif tl[i+1] == tier:
+                tv = tv + tier*.25
+        tv = tv//1
+        return tv + (dif*player)
+    else:
+        return dif
 
 def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
     result = ''
@@ -96,7 +99,7 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
                                'painting',
                                'sphere',
                                'clothing',
-                               'dool',
+                               'doll',
                                'toy',
                                'video game',
                                'musical instrument',
@@ -110,19 +113,21 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
                                'Denizen'
                                'Skaia',
                                'Heart',
-                               'Mind'
+                               'Mind',
                                'Space',
-                               'Time'
+                               'Time',
                                'Breath',
                                'Blood',
-                               'Doom'
+                               'Doom',
                                'Life',
                                'Void',
                                'Light',
                                'Rage',
                                'Hope'])
         quem = quem[0] + "'s doing"
-    quem = quem[0]
+
+    else:
+        quem = quem[0]
 
     if f1 == False or chance > mdchnc:
         if quem[0] in ['a','e','i','o','u']:
@@ -267,22 +272,24 @@ while op != 3:
         2 - [Why?] ({f[1]} at the moment)
         3 - [Where?] ({f[2]} at the moment)
         4 - [When?] ({f[3]} at the moment)
-        5 - [How?] ({f[4]}% at the moment)
-        6 - Change [Who?] modifier percentage ({modchnc} at the moment)
-        7 - Cancel''')
+        5 - [How?] ({f[4]} at the moment)
+        6 - Change [Who?] modifier percentage ({modchnc}% at the moment)
+        7 - Change difficulty ({d} at the moment)
+        8 - Exit''')
                         n = int(input("\n=> ")) 
                         if n < len(f)+1:
                             f[n-1] = not f[n-1]
-                            break
                         elif n == 6:
                             modchnc = int(input(f'''Add the percentage you wish to use.
         => '''))
-                            break
                         elif n == 7:
+                            d = int(input("Add the new difficulty, from 1 to 5: "))
+                            cr = pegar_cr(d,p,t)
+                            print(f"\nThe mission is now a Tier {int(t)} and {cr} CR.\n")
+                        elif n == 8:
                             break
                         else:
                             print ('%i is not an available option.'%(n))
-                            break
             if opc == 3:
                 print('Ending program.')
                 break
