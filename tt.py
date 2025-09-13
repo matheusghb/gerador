@@ -80,7 +80,9 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
     elif quem[0] == 'e':
         quem = random.choices(['mania',
                                'influence',
+                               'lie',
                                'conspiracy',
+                               'invasion'
                                'storm',
                                'invasion',
                                "'s doing",
@@ -104,6 +106,7 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
                                'video game',
                                'musical instrument',
                                'liquid',
+                               'fire',
                                ])
         
     if quem[0] == "'s doing":
@@ -125,7 +128,26 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
                                'Rage',
                                'Hope'])
         quem = quem[0] + "'s doing"
-
+    elif quem[0] == 'invasion':
+        quem = quem = random.choices([
+            'consort',
+            'Derse agent',
+            'Prospit agent',
+            'imp',
+            'sprite',
+            'amphibian',
+            'reptile',
+            'bird',
+            'fungus',
+            'fish',
+            'crustacian',
+            'lusus',
+            'android',
+            'crustacian',
+            'feline',
+            'insect',
+        ])
+        quem = quem[0] + "invasion"
     else:
         quem = quem[0]
 
