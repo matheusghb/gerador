@@ -147,7 +147,7 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
             'feline',
             'insect',
         ])
-        quem = quem[0] + "invasion"
+        quem = quem[0] + " invasion"
     else:
         quem = quem[0]
 
@@ -320,11 +320,12 @@ while op != 3:
         while flg == 0:
             try:
                 ty = int(input("\nDefine the desired type between:\n1 - Underling\n2 - Consorts\n3 - Caraspacians\n4 - Any\n==> "))
-                t = int(input("\nDefine the desired Tier (input words if any)\n==> "))
+                t = int(input("\nDefine the desired Tier (input -1 if any)\n==> "))
                 if ty == 2 and t > 2:
+                    print('Consorts do not go above T2.')
                     raise Exception("Consorts do not go above T2.")
             except:
                 print('Try again.')
             else:
-                c = int(input("\nDefine the desired CR between 1 and 3 (input words if any)\n==> "))
+                c = int(input("\nDefine the desired CR between 1 and 3 (input -1 if any)\n==> "))
 
