@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #61d4b0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.body {
+    min-width: 80vw;
+    max-width: 80vw;
+    min-height: 100vh;
+    background-color: #ecedd5;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#ico {
+    width: 40vw;
+}

@@ -4,12 +4,14 @@ def pegar_cr(dif,player,tier):
     if player > 1:
         tv = float(tier)
         for i in range(player-1):
-            if tl[i+1] > tier:
-                tv = tv + (tier*.5 + (tl[i+1])-tier)
+            if tl[i+1] > tier or tl[i+1] < tier:
+                tv = tv + (tl[i+1]*0.5- tier)
             elif tl[i+1] == tier:
-                tv = tv + tier*.25
-        tv = tv//1
-        return tv + (dif*player)
+                if tl[i+1] > 1:
+                    tv = tv + tier*.25
+                else:
+                    tv = tv + 1
+        return tv + (dif*int(player/2))
     else:
         return dif
 
@@ -259,73 +261,85 @@ def lista_random(dif,f1,f2,f3,f4,f5,mdchnc):
         result = result + '\nOne should expect use of ' + como + '.'
     
     return result
-op = 0
-while op != 3:
-    op = int(input('\nWhat do you wish to do?\n1 - Generate a session\n2 - Choose a random enemy\n3 - Turn off\n==> '))
-    if op == 1:
-        tl = []
-        d = int(input("Define the difficulty of your mission, from 1 to 5: "))
-        p = int(input("Define the player quantity: "))
+tl = []
+while True:
+    op = int(input('\nWhat do you wish to do?\n1 - Generate a party\n2 - Generate a session\n3 - Choose a random enemy\n4 - Turn off\n==> '))
+    if len(tl) > 0:
+        print("\nThis are you players: ")
         for i in range(p):
-            tt = int(input("Define the %i's player tier: "%(i+1)))
-            tl.append(float(tt))    
-        t = float(sum(tl)//p)
-        cr = pegar_cr(d,p,t)
-        print("It's a Tier %i mission with CR %i.\n"%(t,cr))
-
-        flag1 = 0
-        f = [True, True, True, True, True]
-        modchnc = 33
-        print('You have this players: ')
-        for i in range(p):
-            print(f'The {i+1}s player is tier {int(tl[i])}.')
-        print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
-
-        while flag1 == 0:   
-            opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
-            if opc == 1:
+            print(f'The {i+1} player is tier {int(tl[i])}.')
+    match op: 
+        case 1:
+            tl = []
+            d = int(input("Define the difficulty of your mission, from 1 to 5: "))
+            p = int(input("Define the player quantity: "))
+            for i in range(p):
+                tt = int(input("Define the %i's player tier: "%(i+1)))
+                tl.append(float(tt))    
+            t = float(sum(tl)//p)
+            cr = pegar_cr(d,p,t)
+            print("It's a Tier %i mission with CR %i.\n"%(t,cr))
+            flag1 = 0
+            f = [True, True, True, True, True]
+            modchnc = 33
+        case 2:
+            if len(tl) > 0:
                 print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
-            if opc == 2:
-                flag2 = 1
-                while flag2 == 1:
-                        print(f'''Choose an option to manage:
-                            
-        1 - [Who?] modifier ({f[0]} at the moment)
-        2 - [Why?] ({f[1]} at the moment)
-        3 - [Where?] ({f[2]} at the moment)
-        4 - [When?] ({f[3]} at the moment)
-        5 - [How?] ({f[4]} at the moment)
-        6 - Change [Who?] modifier percentage ({modchnc}% at the moment)
-        7 - Change difficulty ({d} at the moment)
-        8 - Exit''')
-                        n = int(input("\n=> ")) 
-                        if n < len(f)+1:
-                            f[n-1] = not f[n-1]
-                        elif n == 6:
-                            modchnc = int(input(f'''Add the percentage you wish to use.
-        => '''))
-                        elif n == 7:
-                            d = int(input("Add the new difficulty, from 1 to 5: "))
-                            cr = pegar_cr(d,p,t)
-                            print(f"\nThe mission is now a Tier {int(t)} and {cr} CR.\n")
-                        elif n == 8:
-                            break
-                        else:
-                            print ('%i is not an available option.'%(n))
-            if opc == 3:
-                print('Ending program.')
-                break
-    if op == 2:
-        flg = 0
-        while flg == 0:
-            try:
-                ty = int(input("\nDefine the desired type between:\n1 - Underling\n2 - Consorts\n3 - Caraspacians\n4 - Any\n==> "))
-                t = int(input("\nDefine the desired Tier (input -1 if any)\n==> "))
-                if ty == 2 and t > 2:
-                    print('Consorts do not go above T2.')
-                    raise Exception("Consorts do not go above T2.")
-            except:
-                print('Try again.')
+
+                while flag1 == 0:   
+                    opc = int(input(f'What do you wish to do?\n1 - Try again\n2 - Manage parameters\n3 - Turn off\n=> '))
+                    if opc == 1:
+                        print('\n',lista_random(d,f[0],f[1],f[2],f[3],f[4],modchnc),'\n')
+                    if opc == 2:
+                        flag2 = 1
+                        while flag2 == 1:
+                                print(f'''Choose an option to manage:
+                                    
+                1 - [Who?] modifier ({f[0]} at the moment)
+                2 - [Why?] ({f[1]} at the moment)
+                3 - [Where?] ({f[2]} at the moment)
+                4 - [When?] ({f[3]} at the moment)
+                5 - [How?] ({f[4]} at the moment)
+                6 - Change [Who?] modifier percentage ({modchnc}% at the moment)
+                7 - Change difficulty ({d} at the moment)
+                8 - Exit''')
+                                n = int(input("\n=> ")) 
+                                if n < len(f)+1:
+                                    f[n-1] = not f[n-1]
+                                elif n == 6:
+                                    modchnc = int(input(f'''Add the percentage you wish to use.
+                => '''))
+                                elif n == 7:
+                                    d = int(input("Add the new difficulty, from 1 to 5: "))
+                                    cr = pegar_cr(d,p,t)
+                                    print(f"\nThe mission is now a Tier {int(t)} and {cr} CR.\n")
+                                elif n == 8:
+                                    break
+                                else:
+                                    print ('%i is not an available option.'%(n))
+                    if opc == 3:
+                        print('\nEnding program.')
+                        break
             else:
-                c = int(input("\nDefine the desired CR between 1 and 3 (input -1 if any)\n==> "))
+                print("\nMake a party first.")
+
+        case 3:
+            flg = 0
+            while flg == 0:
+                try:
+                    ty = int(input("\nDefine the desired type between:\n1 - Underling\n2 - Consorts\n3 - Caraspacians\n4 - Any\n==> "))
+                    t = int(input("\nDefine the desired Tier (input -1 if any)\n==> "))
+                    if ty == 2 and t > 2:
+                        print('Consorts do not go above T2.')
+                        raise Exception("Consorts do not go above T2.")
+                except:
+                    print('Try again.')
+                else:
+                    c = int(input("\nDefine the desired CR between 1 and 3 (input -1 if any)\n==> "))
+        case 4:
+            print("\nEnding program.")
+            break
+
+        case _:
+            print("Not an available option.")
 
