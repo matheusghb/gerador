@@ -17,52 +17,61 @@
 <body>
     <div class="body">
         <h1 id="title">RPGSTUCK</h1>
+        <p>This is a test for a simple generator.</p>
         <div class="ico">
-        </div>
-        <div class="form">
-            <div class="inputbox">
-                <h1>Create a party:</h1>
-                <button class="player" onclick="add()"><i class="material-icons">add</i></button>
-                <form action="php.php" method="POST">
-                    <div class="inputs"></div>
-                    <input type="submit" value="SEND" id="s"></button>                    
-                </form>
+            <div class="wrap-ico">
+                <img src="assets/ico.svg">
             </div>
-        </div>             
+            <div class="form" id="grr">
+                <div class="inputbox">
+                    <h1>Create a party:</h1>
+                    <button class="player" onclick="add()"><i class="material-icons">add</i></button>
+                    <div class="info">
+                        <div class="inputs"></div>
+                        <input type="submit" value="SEND" id="s"></button>                    
+                    </div>
+                </div>
+            </div>
+        </div>      
     </div>
 <script>
 let x = 0
-function add() {
-    x = x + 1   
+function add() {  
+    x++
+    const di = document.getElementById('grr');
     const input = document.createElement("input");
     const label = document.createElement("label");
     const div = document.createElement("div");
     const button = document.createElement("button");
 
     div.className = x
+    div.style.minWidth = "30vw"
+    div.style.display = "flex"
+    div.style.justifyContent = "space-around"
+    div.style.alignItems = "center"
 
     label.for = x;
     label.innerText = "Player " + x + ":";
     label.style.fontFamily = "Homestuck";
-    label.style.fontSize = "1.3vw"
+    label.style.fontSize = "2vw"
 
     input.style.textAlign = "center"
-    input.style.maxWidth = "3vw"
+    input.style.minWidth = "30%"
     input.style.border = "none"
     input.type = "number"
     input.id = String(x);
     input.name = x;
     input.style.margin = "1vh";
-    input.min = 1
+    input.min = 0
     input.max = 5
 
     button.type = "button";
     button.innerText = "X";
     button.addEventListener("click", function() {
         this.parentNode.remove()
-        x = x-1
     });
-    button.style.fontWeight = 500;
+    button.style.fontFamily = "Homestuck";
+    button.style.fontSize = "clamp(1rem,1.3vw,5rem)"
 
     document.getElementsByClassName('inputs')[0].appendChild(div)
     document.getElementsByClassName(x)[0].appendChild(label);
