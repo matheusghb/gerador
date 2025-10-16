@@ -1,0 +1,37 @@
+:root {
+    --body-color: #393939;
+    --in-body-color: #262626;
+}
+
+@keyframes spin {
+    from {rotate: 0deg;}
+    to {rotate: 360deg}
+}
+
+@font-face {
+    font-family: "Homestuck";
+    src: url("assets/hmstuck.ttf")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--body-color);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#main {
+    text-align: center;
+    font-family: "Homestuck";
+}
+
+.main {
+    background-color: white;
+    min-height: 100%;
+    min-width: 70vw;
+}

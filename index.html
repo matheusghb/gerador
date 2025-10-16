@@ -2,83 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RPGstuck random mission prompt generator">
-    <meta name="author" content="Juliet">
-    <link rel="stylesheet" href="css.css">
-    <link rel="icon" href="assets/icone.gif">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
-    <title>RPGSTUCK GENERATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <title>WELCOME</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="body">
-        <h1 id="title">RPGSTUCK</h1>
-        <p>This is a test for a simple generator.</p>
-        <div class="ico">
-            <div class="wrap-ico">
-                <img src="assets/ico.svg">
-            </div>
-            <div class="form" id="grr">
-                <div class="inputbox">
-                    <h1>Create a party:</h1>
-                    <button class="player" onclick="add()"><i class="material-icons">add</i></button>
-                    <div class="info">
-                        <div class="inputs"></div>
-                        <input type="submit" value="SEND" id="s"></button>                    
-                    </div>
+    <div class="desktop">
+        <div class="body">
+            <a class="profile" href="profile/profile.html">
+                <img id=profile src="https://win98icons.alexmeub.com/icons/png/user_computer-1.png">
+                <div class="ptext">
+                    PROFILE                    
                 </div>
+            </a>
+            <a class="browser">
+                <img id="midasico" src="assets/midas.png">
+                <div class="ptext">
+                    MIDAS 
+                </div>
+            </a>
+            <a class="pester">
+                <img id="pesterico" src="assets/PESTER1.png">
+                <div class="ptext">
+                    PESTER.NET
+                </div>
+            </a>
+            <a class="sburb" href="gerador/home.html">
+                <img id="sburb" src="https://win98icons.alexmeub.com/icons/png/template_world-4.png">
+                <div class="ptext">
+                    GENERATOR^PIE
+                </div>
+            </a>            
+            <a class="comms" href="comms/comm.html">
+                <img id="commico" src="https://homestuck.net/tools/homestuck-icons/Rose/rosefolder.ico">
+                <div class="ptext">
+                    COMMS-SITE
+                </div>
+            </a>
+        </div>
+        <div class="header">
+            <img id="os" src="https://win98icons.alexmeub.com/icons/png/search_web-0.png">
+            <div class="icon-array">
+                <img id="midas" src="assets/midas.png">
+                <img id="pester" src="assets/PESTER1.png">
+                <img id="pasta" src="https://homestuck.net/tools/homestuck-icons/Rose/rosefolder.ico">
+                <img id="forma" src="https://homestuck.net/tools/homestuck-icons/Jade/sixpoint3d.ico">
+                <img id="doc1" src="assets/smile.png">
+                <img id="doc2" src="assets/smile.png">
             </div>
-        </div>      
+            <div class="hora">
+                <h1 id="hora"></h1>
+                <h1 id="dia"></h1>
+            </div>
+        </div>
+
     </div>
-<script>
-let x = 0
-function add() {  
-    x++
-    const di = document.getElementById('grr');
-    const input = document.createElement("input");
-    const label = document.createElement("label");
-    const div = document.createElement("div");
-    const button = document.createElement("button");
-
-    div.className = x
-    div.style.minWidth = "30vw"
-    div.style.display = "flex"
-    div.style.justifyContent = "space-around"
-    div.style.alignItems = "center"
-
-    label.for = x;
-    label.innerText = "Player " + x + ":";
-    label.style.fontFamily = "Homestuck";
-    label.style.fontSize = "2vw"
-
-    input.style.textAlign = "center"
-    input.style.minWidth = "30%"
-    input.style.border = "none"
-    input.type = "number"
-    input.id = String(x);
-    input.name = x;
-    input.style.margin = "1vh";
-    input.min = 0
-    input.max = 5
-
-    button.type = "button";
-    button.innerText = "X";
-    button.addEventListener("click", function() {
-        this.parentNode.remove()
-    });
-    button.style.fontFamily = "Homestuck";
-    button.style.fontSize = "clamp(1rem,1.3vw,5rem)"
-
-    document.getElementsByClassName('inputs')[0].appendChild(div)
-    document.getElementsByClassName(x)[0].appendChild(label);
-    document.getElementsByClassName(x)[0].appendChild(input);
-    document.getElementsByClassName(x)[0].appendChild(button);
-}
-
-</script>
+<script src="script.js"></script>    
 </body>
 </html>

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: Homestuck;
+    src: url(assets/TYPOSTUCK\ \(Slightly\ better\ classic\ Homestuck\ font\)\(1\).ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://i.makeagif.com/media/4-05-2016/utmjeB.gif);
+    background-repeat: no-repeat repeat;
+    background-position: center;
+    background-size: 100vw;
+}
+
+.desktop {
+    border: .7vw solid black;
+    background-color: white;
+    height: 80vh;
+    width: 60vw;
+    border-radius: 3vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.body {
+    background-color: rgb(119, 126, 21);
+    height: 85.5%;
+    max-height: 85.5%;
+    background-image: url(https://images7.alphacoders.com/324/thumb-350-324431.webp);
+    background-blend-mode:multiply;
+    background-size: 65vw;
+    background-position: center;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+
+}
+
+.header {
+    height: 11vh;
+    width: 100%;
+    border-top: 0.3vw solid rgb(110, 110, 110);
+    background: linear-gradient(to bottom,rgb(175, 175, 175),rgb(90, 90, 90));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgb(211, 211, 211) inset;
+}
+
+.header img {
+    object-fit: contain;
+}
+
+#os {
+    width: 3vw;
+    margin-left: 1vw;
+}
+
+.icon-array {
+    box-shadow: 0px 0px 10px rgb(211, 211, 211) inset;
+    border: 0.2vw solid rgb(112, 112, 112);
+    border-radius: .5vw;
+    padding: .30vw;
+    display: flex;
+    gap: 1.5vw;
+}
+
+.icon-array img {
+    width: 2.8vw;
+}
+
+.hora {
+    border-left: 0.3vw solid rgb(112, 112, 112);
+    box-shadow: 0px 0px 5px rgb(211, 211, 211) inset;
+    width: 7vw;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hora {
+    display: flex;
+    flex-direction: column;
+    gap: .8vh;
+    padding-right: .5vw;
+}
+
+#hora, #dia {
+    margin-left: .5vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1vw;
+}
+
+.body a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Homestuck;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    max-width: 8vw;
+    text-decoration: none;
+    margin: 1.2vw;
+}
+
+.body a img {
+    height: 3.8vw;
+    width: 8vw;
+    object-fit: contain;
+}
+
+.ptext {
+    text-align: center;
+    padding: .5vw;
+    font-size: 1.3vw;
+    background-color: rgb(148, 148, 148, 0.5);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(148, 148, 148);
+}
