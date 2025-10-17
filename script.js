@@ -1,3 +1,12 @@
+const r = document.querySelector(":root")
+
+document.addEventListener("mousedown", function() {
+   r.style.setProperty('--cursor', "url('https://homestuck.net/tools/homestuck-cursors/SBURB%20Cursors/SBurb_Revise.cur'), auto")
+})
+
+document.addEventListener("mouseup", function () {
+    r.style.setProperty('--cursor', "url('https://homestuck.net/tools/homestuck-cursors/SBURB%20Cursors/SBurb_Select.cur'), auto")
+})
 
 setInterval(hora,1000)
 
