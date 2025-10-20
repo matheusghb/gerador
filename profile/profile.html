@@ -11,22 +11,23 @@
             --bgcolor: radial-gradient(#92d5f0, white);
             --color1: rgb(62, 153, 175);
             --color2: rgb(142, 205, 223);
-            --vh: 50vh;
-            --vw: 90vw;
+            --fcor: rgb(38, 95, 109);
+            --vw: 1200px;
+            --vh: 500px;
 
-            @media only screen and (min-width: 600px) {
-                --vw: 70vw;
-                --vh: 60vh;
+            @media only screen and (min-width: 300px) {
+                --vw: 400px;
+                --vh: 600px;
             }
 
             @media only screen and (min-width: 800px) {
-                --vw: 50vw;
-                --vh: 70vh;
+                --vw: 400px;
+                --vh: 600px;
             }
 
             @media only screen and (min-width: 1200px) {
-                --vw: 40vw;
-                --vh: 90vh;
+                --vw: 543px;
+                --vh: 900px;
             }
         }
     </style>
@@ -35,23 +36,95 @@
     <div class="cont">
         <div class="c1">
             <div class="ci1">
-                <img src="https://media.tenor.com/AFeEkPH6mqIAAAAj/aol-guy-aol.gif">
+                <img id="icon" src="/assets/izard.png"> 
+            </div>
+            <div class="ci3">
+                <img src="https://64.media.tumblr.com/86b5d7a0d49ee17b27f8f5ad21ebd58d/b16e6746d34bbaa7-02/s75x75_c1/d991b71ad2e28eb4054be177b1d5d1fe1fdc951d.gifv">
+                <img src="https://64.media.tumblr.com/717e90f57febd441f64512ef67f3bd7b/b2fc742762e99e4a-81/s400x600/218bead89593fa91af770be9be532dc6f184093f.gifv">
+                <img src="https://64.media.tumblr.com/46fd2eb001c09f6008683fb85d27eceb/5dad261d785ab372-71/s75x75_c1/0b3ff36f10b4ff13e55b854f13b944a7121d1369.pnj">
             </div>
             <div class="ci2">
-
+                <h5>Call me Juliet!<br>I am <b id="b"></b> years old.<br>I use She / They <br>pronouns.<br>I do comms!!</h5>
             </div>
         </div>
         <div class="c2">
-            
+            <img id="svg" src="/assets/iz1.svg">
         </div>
         <div class="c3">
-            
+            <div class="ci4">
+                <h1>Friends!</h1>
+                <div class="grid">
+                    <div class="g">
+                        <div class="i1">
+                            <a target="_blank" href="/index.html">
+                                <img src="/assets/dirk.png"><h1>Demu</h1>
+                            </a> 
+                        </div>    
+                        <div class="i2"> 
+                            <a href="https://pjaayy.straw.page/" target="_blank">
+                                <img src="/assets/john.png"><h1>Liam</h1>
+                            </a>
+                        </div>    
+                        <div class="i3">
+                            <a target="_blank" href="https://nyakkomeowpage.straw.page/">
+                               <img src="/assets/dave.webp"><h1>Mel</h1> 
+                            </a>
+                        </div>                          
+                    </div>
+                    <div class="g">
+                        <div class="i4">
+                            <img src="/assets/equius.png"><h1>Lulu</h1>
+                        </div>    
+                        <div class="i5">
+                            <img src="/assets/caliborn.png"><h1>Kaio</h1>
+                        </div>    
+                        <div class="i6">
+                            <a target="_blank" href="https://switchofvope.straw.page/">
+                                <img src="/assets/jade.webp"><h1>Luci</h1>
+                            </a>
+                        </div>                            
+                    </div>
+                    <div class="g">
+                        <div class="i7">
+                            <img src="/assets/Vagabond_Mayor.webp"><h1>Ravee</h1>
+                        </div>    
+                        <div class="i8">
+                            <img src="/assets/Dream_Jake.webp"><h1>Shant</h1>
+                        </div>    
+                        <div class="i9">
+                            <img src="/assets/Eridan_Ampora.png"><h1>Dai</h1>
+                        </div>                            
+                    </div>
+                    <div class="g">
+                        <div class="i10">
+                            <img src="/assets/meulin.webp"><h1>Pedro</h1>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="ci5">
+                <h1>DNI</h1>
+                <p>CONSERVATIVES/REPUBLICANS, ZIONISTS, SH/EDTWT, PROSHIP/DARKSHIP, TERFS + BASIC DNI</p>
+                <h1>DISCLAIMERS</h1>
+                <p>I am terrible holding a conversation and cant do phone calls, treat carefully (pls) <br><br> I am very sensible to bug imagery, will avoid if possible</p>
+            </div>
         </div>
         <div class="c4">
-            
+            <h1>INTERESTS</h1>
         </div>
     </div>
     <div class="anim">
-    </div>    
+    </div>
+    <img id="rat" src="https://64.media.tumblr.com/233d9a77c451c95c5e1c269f1492b37c/75192dddfe1fd160-f6/s250x400/0fa71253ab6521f9c2a90869388775cfb68c6629.gifv">
+    <script>
+        let toggle = true;
+
+        setInterval(() => {
+            document.getElementById("svg").src = toggle ? "/assets/iz1.svg" : "/assets/iz2.svg";
+            toggle = !toggle;
+        }, 100);
+        const date = new Date();
+        document.getElementById("b").innerHTML = (date.getFullYear() - 2007)
+    </script>    
 </body>
 </html>

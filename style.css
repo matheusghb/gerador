@@ -15,73 +15,71 @@
 }
 
 body {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-image: url(https://i.makeagif.com/media/4-05-2016/utmjeB.gif);
     background-repeat: no-repeat repeat;
     background-position: center;
-    background-size: 100vw;
+    background-size: 100%;
 }
 
 .desktop {
-    border: .7vw solid black;
+    border: calc(var(--vw)/100) solid black;
     background-color: white;
-    height: 80vh;
-    width: 60vw;
-    border-radius: 3vw;
+    height: calc(var(--vh));
+    width: calc(var(--vw));
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin: 10px;
+    margin: auto;
 }
 
 .body {
     background-color: rgb(119, 126, 21);
-    height: 78.59%;
+    height: calc(var(--vh)/1.3);
     background-image: url(https://images7.alphacoders.com/324/thumb-350-324431.webp);
     background-blend-mode:multiply;
-    background-size: 65vw;
+    background-size: 100%;
     background-position: center;
     display: flex;
     flex-flow: column wrap;
     align-content: flex-start;
-    image-rendering: pixelated;
 }
 
 .uph {
-    
-    height: 6vh;
+    height: calc(var(--vh)/10);
     background: linear-gradient(to bottom,rgb(175, 175, 175),rgb(90, 90, 90));
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 0px 20px rgb(211, 211, 211) inset;
-    border-bottom: 0.3vw solid rgb(110, 110, 110);
+    border-bottom: calc(var(--vw)/200) solid rgb(110, 110, 110);
     :last-child {
-        margin-right: .2vw;
+        margin-right: calc(var(--vw)/100);
     }    
     :first-child {
-        margin-left: 1vw;
+        margin-left: calc(var(--vw)/100);
     }
     .btry {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 12%;
+        width: calc(var(--vw)/8);
         color: white;
         h1 {
-            font-size: 1.3vw;
+            font-size: calc(var(--vw)/40);
             font-family: Arial, Helvetica, sans-serif;
         }
     }
 }
 
 .header {
-    height: 11vh;
+    height: calc(var(--vw)/8);
     width: 100%;
-    border-top: 0.3vw solid rgb(110, 110, 110);
+    border-top: calc(var(--vw)/200) solid rgb(110, 110, 110);
     background: linear-gradient(to bottom,rgb(175, 175, 175),rgb(90, 90, 90));
     display: flex;
     justify-content: space-between;
@@ -94,45 +92,45 @@ body {
 }
 
 #os {
-    width: 3vw;
-    margin-left: 1vw;
+    width: calc(var(--vw)/20);
+    margin-left: calc(var(--vw)/50);
 }
 
 .icon-array {
     box-shadow: 0px 0px 10px rgb(211, 211, 211) inset;
-    border: 0.2vw solid rgb(112, 112, 112);
-    border-radius: .5vw;
-    padding: .30vw;
+    border: calc(var(--vw)/400) solid rgb(112, 112, 112);
+    border-radius: calc(var(--vw)/100);
+    padding: calc(var(--vw)/150);
     display: flex;
-    gap: 1.5vw;
+    gap: calc(var(--vw)/50);
 }
 
 .icon-array img {
-    width: 2.8vw;
+    width: calc(var(--vw)/20);
 }
 
 .hora {
-    border-left: 0.3vw solid rgb(112, 112, 112);
+    border-left: calc(var(--vw)/200) solid rgb(112, 112, 112);
     box-shadow: 0px 0px 5px rgb(211, 211, 211) inset;
-    width: 7vw;
+    width: calc(var(--vw)/8);
     height: 100%;
     color: white;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
 .hora {
     display: flex;
     flex-direction: column;
-    gap: .8vh;
-    padding-right: .5vw;
+    gap: calc(var(--vw)/200);
+    padding-right: calc(var(--vw)/100);
 }
 
 #hora, #dia {
-    margin-left: .5vw;
+    margin-left: calc(var(--vw)/100);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1vw;
+    font-size: calc(var(--vw)/50);
 }
 
 .body a {
@@ -142,9 +140,9 @@ body {
     align-items: center;
     font-family: Homestuck;
     overflow-wrap: anywhere;
-    max-width: 8vw;
+    max-width: calc(var(--vw)/7);
     text-decoration: none;
-    margin: 1.2vw;
+    margin: calc(var(--vw)/70);
 
     &:hover {
         .ptext {
@@ -156,15 +154,15 @@ body {
 }
 
 .body a img {
-    height: 3.5vw;
-    width: 8vw;
+    height: calc(var(--vw)/15);
+    width: calc(var(--vw)/7.4);
     object-fit: contain;
 }
 
 .ptext {
     text-align: center;
-    padding: .5vw;
-    font-size: 1.3vw;
+    padding: calc(var(--vw)/100);
+    font-size: calc(var(--vw)/45);
     background-color: rgb(148, 148, 148, 0.5);
     color: white;
     border-radius: 10px;
