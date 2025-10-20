@@ -45,7 +45,6 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
     div {
       display: flex;
     }
@@ -156,7 +155,6 @@ body {
     margin-right: calc(var(--vw)/100);
     max-height: calc(var(--vh)/3.5);
     scrollbar-color: var(--color1) var(--color2);
-    scrollbar-width: thin;
     scrollbar-arrow-color: none;
     ::-webkit-scrollbar-button, ::-webkit-scrollbar-track {
       display: none;
@@ -216,9 +214,18 @@ body {
 .c4 {
   justify-content: center;
   align-items: center;
+  flex-flow: column;
   border: calc(var(--vw)/150) solid var(--color1);
   margin: calc(var(--vw)/60);
   margin-bottom: calc(var(--vw)/50);
+  border-radius: 30px;
+}
+
+.icont {
+  width: 85%;
+  margin: calc(var(--vw)/30);
+  height: calc(var(--vh)/2);
+  border: calc(var(--vw)/200) solid var(--color1);
   border-radius: 30px;
 }
 
