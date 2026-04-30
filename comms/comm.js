@@ -31,9 +31,7 @@ l = [ //outer edge, holds the types
     ]
 ]
 
-if (screen.width < 600 && window.location.pathname == "/comms/comm.html") {
-    window.location.replace("commmobile.html")
-}
+const display = window.getComputedStyle(document.getElementsByClassName("display")[0]).getPropertyValue("display") //i dont want to explain this one
 
 clist = []
 
@@ -83,10 +81,12 @@ function buildprices() {
 
     const opt = document.getElementsByClassName("option")
     for (let i = 0; i < 6; i++) { //selects "option" divs
-
+        
         let cat = l[i] // for "category"
         let position = i // saves the i so i get to reuse it inside the loop
+        
         for (let i = 0; i < cat.length; i++) { // selects and cycles through values of type
+
             const cell = document.createElement("div")
             const type = document.createElement("h1")
             const price = document.createElement("i")
@@ -112,24 +112,41 @@ function buildprices() {
 
             down.style.opacity = .4
 
+            type.addEventListener("click",function() {
+                valuecleanup(num,true,down)
+            })
+
+            type.addEventListener("contextmenu", function() {
+                if (Number(num.innerHTML) > 0) {
+                    valuecleanup(num,false,down)
+                }
+            })
+
+            type.addEventListener("contextmenu", (e) => {e.preventDefault()})
+
 
             up.addEventListener("click",function() {
                 valuecleanup(num,true,down)
             })
 
             down.addEventListener("click", function() {
-                valuecleanup(num,false,this)
+                if (Number(num.innerHTML) > 0) {
+                    valuecleanup(num,false,this)
+                }
             })
 
             num.innerHTML = 0
             num.className = "pricenumber"
 
-
             type.appendChild(price)
             numdiv.append(up, down)
             cell.append(type,numdiv,num)
-            opt[position].appendChild(cell)
-
+            if (display == "none") {
+                opt[position+6].appendChild(cell)
+            } else {
+                opt[position].appendChild(cell)
+            }
+            
         }
     }
 }
@@ -226,17 +243,20 @@ function calc () {
 
     }
 
-    const uhh = document.getElementsByClassName("values")[0]
+    if (display == "none") {
+        const uhh = document.getElementsByClassName("values")[1]
+    } else {
+        const uhh = document.getElementsByClassName("values")[0]
+    }
 
+    
     if (totalprice > 0) {
         uhh.style.display = "flex"
-        return "The total comes around to "+totalprice+" USD."
+        return "Total of "+totalprice+" USD."
     } else {
         uhh.style.display = "none"
         return "You haven't added anything!"
     }
-
-    
 
 }
 
@@ -294,30 +314,31 @@ function cycle(subject,value) {
     }
 }
 
-if (document.getElementsByClassName("list")[0]) {
-    document.getElementsByClassName("list")[0].addEventListener("click", function () {
+document.getElementsByClassName("material-symbols-sharp list")[0].addEventListener("click", function () {
 
-        const div = document.getElementsByClassName("calc")[0]
+    console.log(document.getElementsByClassName("calc")[1])
 
-        if (div.style.display == "flex") {
-            div.style.display = "none"
-        } else {
-            div.style.display = "flex"
-        }  
+    if (display == "none") {
+        const divc = document.getElementsByClassName("calc")[1]
+    } else {
+        const divc = document.getElementsByClassName("calc")[0]
+    }
 
-    })    
-}
+    if (divc.style.display == "flex") {
+        divc.style.display = "none"
+    } else {
+        divc.style.display = "flex"
+    }  
 
-if (document.getElementsByClassName("menu")) {
-    const menu = document.getElementsByClassName("topic")
-    console.log(menu)
-    for (let i = 0; i < menu.length;i++) {
+})    
+
+const menu = document.getElementsByClassName("topic")
+for (let i = 0; i < menu.length;i++) {
+    
+    if ((i % 2) > 0) {
         
-        if ((i % 2) > 0) {
-            
-            menu[i].id = "dark"
-
-        }
+        menu[i].id = "dark"
 
     }
+
 }

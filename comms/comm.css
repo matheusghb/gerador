@@ -1,14 +1,41 @@
 @font-face {
-    font-family: comicate;
-    src: url(/assets/Coolvetica\ Hv\ Comp.otf);
+    font-family: charliekirk;
+    src: url(/assets/DirtyStains-DEMO.otf);
 }
 
+@font-face {
+    font-family: vance;
+    src: url(/assets/nu_century_gothic.ttf);
+}
 
+@font-face {
+    font-family: hitler;
+    src: url(/assets/Starz\ 2.ttf);
+}
+
+@font-face {
+    font-family: trump;
+    src: url(/assets/Leander.ttf);
+}
+
+@font-face {
+    font-family: ACID;
+    src: url(/assets/Acidic.TTF);
+}
+
+@font-face {
+    font-family: marola;
+    src: url(/assets/MAROLA__.TTF);
+}
+
+@font-face {
+    font-family: blood;
+    src: url(/assets/WC_Rhesus_A_Bta.otf);
+}
 :root {
     --cor1: rgb(193, 219, 131);
     --cor2: rgb(106, 131, 36);
-    --cor3: rgba(74, 154, 192, .9);
-    --background: linear-gradient(to bottom, rgba(74, 154, 192, .9) 40%, rgba(27, 104, 155, .9) 50%, rgba(14, 100, 150, .9) 90%);;
+    --cor3: rgb(37, 59, 7);
 }
 
 * {
@@ -40,6 +67,7 @@ body {
     border-radius: 10px;
     height: 80%;
     width: 65%;
+    aspect-ratio: 2/3;
     padding: .5%;
 
     .windowbut {
@@ -202,9 +230,22 @@ body {
         border: 1.5px solid black;
         border-radius: 2px;
         height: 85%;
-        background: linear-gradient(126deg, white 0%, var(--cor1) 20%, var(--cor2)) 80%, rgb(67, 95, 2) 90%;
-        overflow: hidden;
+        position: relative;
         
+        .ibg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+            131deg,
+            white 0%,
+            rgba(193, 219, 131, 1) 10%,
+           rgba(106, 131, 36, 1) 90%,
+           rgba(37, 59, 7, 1) 100%
+            );
+            z-index: -1;
+        }
+
         .uside {
             display: flex;
             justify-items: center;
@@ -220,10 +261,14 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: .5%;
                 img {
                     object-fit: contain;
                     width: 2vw;
                 }
+            }
+            a:hover {
+                background-color: rgba(0, 0, 0, 0.123);
             }
             .twitter, .tumblr {
                 margin-right: 3%;
@@ -253,7 +298,7 @@ body {
             .lside {
                 overflow: hidden;
                 padding: 1%;
-                width: 23%;
+                width: 22%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -262,47 +307,59 @@ body {
                     width: 10%;
                 }
                 .menu {
+                    z-index: 1;
+                    position: relative;
+                    box-shadow: 0px 0px 5px 2px var(--cor3) inset;
                     background-color: rgb(175, 204, 108);
-                    border-radius: 10px 0px 10px 0px;
+                    border: 3px solid var(--cor3);
                     overflow: hidden;
                     display: flex;
                     width: 100%;
                     flex-direction: column;
                     user-select: none;
                     font-family: Arial, Helvetica, sans-serif;
+                    .stars {
+                        bottom: -24%;
+                        right: -20%;
+                        rotate: 270deg;
+                        font-size: 7vw;
+                        position: absolute;
+                        color: var(--cor3);
+                        font-family: hitler;
+                    }
+
                     .titulo, .topic {
-                        cursor: pointer;
                         width: 100%;
-                        img {
-                            filter: sepia(20%);
-                            -webkit-filter: sepia(20%);
-                            -moz-filter: sepia(20%);
-                        }
                     }
                     .titulo {
                         text-align: center;
                         background-color: rgb(37, 59, 7);
-                        color: white;
-                        padding-top: 3%;
+                        color: rgb(175, 204, 108);
+                        padding-top: 4%;
                         padding-bottom: 3%;
-                        font-size: 90%;
-                        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                        font-size: .8vw;
+                        font-family: charliekirk;
                         font-style: italic;
                         letter-spacing: 20%;
                     }
                     .topic {
+                        cursor: pointer;
+                        font-family: vance;
                         display: flex;
                         align-items: center;
                         padding: 2%;
                         color: rgb(80, 97, 48);
-                        font-size: .85vw;
+                        font-size: 1vw;
                         img {
                             width: 12%;
                         }
                         padding-left: 7%;
                     }
+                    .topic:hover {
+                        zoom: 110%;
+                    }
                     #dark {
-                        color: white;
+                        color: var(--cor1);
                         background: linear-gradient(to right, rgba(37, 59, 7, 0.6) 0%, rgba(0,0,0,0) 100%);
                     }
                     .topic:hover {
@@ -319,55 +376,43 @@ body {
                     }
                 }
                 .calc {
+                    background-image: url(/assets/7368.png);
+                    background-position: center;
+                    background-size: contain;
+                    rotate: -3deg;
                     color: rgb(51, 51, 51);
-                    background-color: rgb(237, 247, 223);
                     font-family: Arial, Helvetica, sans-serif;
                     display: flex;
-                    align-items: center;
                     justify-content: space-between;
                     align-items: center;
                     flex-direction: column;
-                    aspect-ratio: 1/1;
+                    aspect-ratio: 2/2;
                     overflow: hidden;
-                    border: 1px solid gray;
-                    height: 40%;
-                    .title {
-                        padding-top: 1%;
-                        background-color: white;
-                        display: flex;
-                        align-items: center;
-                        h1 {
-                            font-weight: 300;
-                            margin: 2%;
-                            margin-top: 0px;
-                            font-size: 80%;
-                        }
-                        img {
-                            margin-left: 2%;
-                        }
-                    }
+                    z-index: 0;
+                    padding: 13%;
                     .values, .total {
                         margin: 3%;
+                        rotate: 3deg;
+                        * {
+                            rotate: 0;
+                        }
                     }
                     .values::-webkit-scrollbar {
                         display: none;
                     }
                     .values {
                         scrollbar-width: none;
-                        box-shadow: 0px 0px 3px 1px white inset;
-                        border-radius: 5px;
-                        background: linear-gradient(to top, white, rgb(223, 241, 247));
                         display: none;
                         flex-direction: column;
                         align-items: center;
                         border-radius: inherit;
-                        border: .5px solid rgb(136, 136, 136);
                         overflow: scroll;
                         overflow-x: hidden;
                         padding: 3%;
                         height: 50%;
                         width: 90%;
                         .calccell {
+                            color: var(--cor1);
                             width: 100%;
                             display: flex;
                             font-size: .5vw;
@@ -375,87 +420,120 @@ body {
                             justify-content: space-between;
                             align-items: center;
                             margin-bottom: 5%;
+                            border-bottom: 1px solid var(--cor1);
                             p {
                                 font-size: 1vw;
+                            }
+                            h1 {
+                                max-width: 70%;
+                                line-break: anywhere;
                             }
                         }
                     }
                     .total {
+                        font-family: trump;
+                        text-align: center;
                         margin: auto;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        color: rgb(40, 55, 61);
+                        color: var(--cor1);
                         font-size: 1vw;
-                        padding: 5%;
+                        padding: 4%;
                     }
                 }
             }
             .rside {
-                overflow: auto;
+                position: relative;
+                overflow-y: auto;
                 display: flex;
                 flex-direction: column;
                 box-shadow: -3px 0 3px -3px rgb(37, 59, 7);
                 width: 100%;
-                padding: 2%;
                 gap: 5%;
+                * {
+                    z-index: 1;
+                }
                 .title {
-                    margin-top: 2%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 15%;
-                    img {
-                        object-fit: contain;
-                        height: 100%;
-                    }
-                    #glitter {
-                        filter: drop-shadow( 0px 7px 5px rgba(0, 0, 0, 0.63));
-                    }
+                    color: var(--cor3);
+                    width: 100%;
+                    text-align: center;
+                    font-size: 6vw;
+                    font-family: ACID;
+                    padding-top: 3%;
+                    filter: drop-shadow(0px 0px 5px var(--cor1));
+                }
+                .pattern {
+                    position: absolute;
+                    object-fit: contain;
+                    width: 100%;
+                    z-index: 0;
                 }
                 .subtitle {
-                    font-family: coolvetica;
-                    background: linear-gradient(to right, rgba(74, 154, 192, .9) 0%, white 80%);
-                    width: 100%;
+                    padding: 1%;
+                    padding-right: 0%;
+                    font-family: marola;
+                    background: var(--cor3);
                     h1 {
-                        margin-left: 2%;
+                        position: relative;
+                        overflow: hidden;
+                        width: 100%;
+                        background: linear-gradient(to left, var(--cor2) 0%, rgba(0,0,0,0) 100%);
                         font-weight: 300;
-                        color: rgb(255, 255, 255);
+                        color: var(--cor1);
+                        i {
+                            padding-left: 2%;
+                            padding-right: 2%;
+                            font-style: normal;
+                            font-family: hitler;
+                        }
+                        b {
+                            font-size: 8vw;
+                            color: var(--cor3);
+                            top: -70%;
+                            right: 30px;
+                            position: absolute;
+                            font-family: blood;
+                        }
                     }
                 }
                 .block {
-                    box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.432) inset;
-                    background: linear-gradient(to bottom, rgba(74, 154, 192, .9) 40%, rgba(27, 104, 155, .9) 50%, rgba(14, 100, 150, .9) 90%);
                     padding: 1%;
+                    margin: auto;
                     width: 90%; 
                     border-radius: 3px;
                     .innertitle {
+                        rotate: 1deg;
                         display: flex;                    
                         margin-right: auto;
-                        align-items: center;                        
+                        align-items: center;
+                        margin-bottom: 2%;      
+                        background-image: url(/assets/10085.png);      
+                        background-size: contain; 
+                        padding: 5%; 
+                        background-repeat: no-repeat no-repeat;
+                        image-rendering:pixelated;
                         h1 {
-                            color: white;
-                            margin-left: 2%;
+                            color: var(--cor1);
+                            margin-left: 15%;
                             font-size: 120%;
-                            font-family: monospace;
+                            font-family: charliekirk;
                             font-weight: 600;
-                        }
-                        img {
-                            width: 5%;
-                            filter: drop-shadow(0px 0px 5px white);
-                            object-fit: contain;
-                        }                        
+                        }                  
                     }
                     .content {
+                        filter: drop-shadow(2px 2px 5px var(--cor3));
                         border-radius: 2px;
                         margin: 1% auto 1% auto;
                         width: 99%;
-                        background-color: rgba(230, 245, 245, 0.671);
-                        padding: 1%;
-                        box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.493) inset, 0px 0px 4px 1px rgba(255, 255, 255, 0.479);
+                        border: 5px solid var(--cor3);
+                        background-color: var(--cor1);
+                        padding: 3%;
+                        box-shadow: 0px 0px 3px 1px var(--cor3) inset, 0px 0px 4px 1px var(--cor3);
                         ul {
                             li {
-                                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                                font-family:vance;
+                                color: var(--cor3);
                                 display: flex;
                                 align-items: center;
                                 h1 {
@@ -474,47 +552,135 @@ body {
                         }
                     }     
                 }
+
+                .tip {
+                    margin: auto;
+                    font-size: 1.3vw;
+                    width: 80%;
+                    text-align: center;
+                    color: var(--cor1);
+                    text-decoration:underline;
+                    font-style: italic;
+                    font-family: vance;
+                    text-shadow: 1px 1px 0px var(--cor2);
+                }
+
                 .opwidget {
                     .typeseparator {
-                        width: 100%;
+                        width: fit-content;
+                        padding: 1% 3% 1% 3%;
+                        margin: auto;
+                        justify-content: space-evenly;
                         display: flex;
-                        justify-content: center;
                         align-items: center;
+                        font-family: ACID;
+                        font-size: 2vw;
+                        color: var(--cor3);
+                        width: 60%;
+                        align-items: center;
+                        i {
+                            font-size: 4vw;
+                            font-family: hitler;
+                            font-style: normal;
+                        }
                     }
                     .arrayoptions {
                         padding: 2%;
                         display: flex;
+                        border: 5px solid var(--cor3);
+                        box-shadow: 0px 0px 10px 2px var(--cor3) inset;
+                        margin: 3%;
+                        justify-content: center;
+                        align-items: center;
+                        background: var(--cor2);
+                        background-image: url(/assets/subtitlebg.png);
+                        background-size: contain;
                         .img {
+                            cursor: pointer;
                             height: 100%;
                             width: 40%;
                             aspect-ratio: 1.6/3;
-                            overflow: hidden;
                             display: flex;
                             flex-direction: column;
                             img {
+                                box-shadow: 0px 0px 7px 1px var(--cor1);
+                                border: 4px solid var(--cor3);
                                 width: 100%;
                                 height: 100%;
                                 object-fit: cover;
+
+                            }
+                            #gus {
+                                object-position: 0% 80%;
+                            }
+                            #alice {
+                                object-position: 30% 100%;
+                            }
+                            #ref {
+                                object-position: 0% 100%;
                             }
                         }
                         #icons {
                             overflow:visible;
                             padding: 1%;
                             img {
+                                filter: drop-shadow(0px 0px 6px var(--cor3));
+                                box-shadow: none;
+                                border: none;
                                 height: auto;
                                 object-fit: contain;
                             }
                         }
                         .option {
+                            margin: 2%;
+                            border: 5px solid var(--cor3);
+                            box-shadow: 0px 0px 7px 1px var(--cor3) inset, 0px 0px 7px 1px var(--cor1);
+                            background-color: var(--cor1);
                             width: 100%;
                             padding: 3%;
                             display: flex;
                             flex-direction: column;
                             justify-content: space-evenly;
                             align-items: center;
+                            color: var(--cor3);
                             .cell {
+                                width: 100%;
                                 display: flex;
-                                justify-content: space-between;
+                                justify-content: space-evenly;
+                                align-items: center;
+                                .typetxt {
+                                    display: flex;
+                                    flex-direction: column;
+                                    font-family: marola;
+                                    * {
+                                        color: var(--cor2);
+                                        font-family: vance;
+                                    }
+                                }
+                                .input {
+                                    height: 100%;
+                                    margin: auto;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    div {
+                                        font-size: 3vw;
+                                    }
+                                }
+                                .pricenumber, .delete {
+                                    text-transform: uppercase;
+                                    font-size: 3vw;
+                                }
+
+                                .delete {
+                                    color: var(--cor2);
+                                    aspect-ratio: 1/1;
+                                    font-family: monospace;
+                                    margin-left: 3%;
+                                    font-size: 2vw;
+                                }
+
                             }
                         }
                     }
@@ -636,8 +802,33 @@ body {
                     border: 1.5px solid rgb(209, 209, 209);
                     border-top: none;
                     animation: collapse .2s ease-out 1 forwards;
+                    ul {
+                        margin-left: 4%;
+                        li {
+                            list-style-type:circle;
+                        }
+                    }
                 }
             }
+
+            .socials {
+                padding: 4%;
+                display: flex;
+                background-color: white;
+                justify-content: space-evenly;
+                a {
+                    margin: auto;
+                    opacity: .3;
+                    padding: 2%;
+                    border: 3px solid black;
+                    border-radius: 10px;                        
+                    width: 17%;               
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;          
+                }
+            }
+
         
             .typeseparator {
                 margin-top: 4%;
@@ -733,13 +924,14 @@ body {
             z-index: 10;
             .values {
                 background: linear-gradient(180deg,rgb(27, 27, 27) 0%, rgb(78, 78, 78) 100%);
-                margin: auto;
+                margin: 3%;
                 padding: 3%;
                 overflow: auto;
                 display: none;
                 flex-direction: column;
                 color: white;
                 border-radius: 5px;
+                height: 50%;
                 .calccell {
                     display: flex;
                     font-size: 3vw;
@@ -749,6 +941,9 @@ body {
                         font-size: 4vw;
                     }
                 }
+            }
+            .total {
+                margin: auto;
             }
         }  
 
