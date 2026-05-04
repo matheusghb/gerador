@@ -28,12 +28,13 @@ body {
     display: flex;
     padding: .8%;
     flex-direction: column;
+    overflow: hidden;
 
     .title {
+        position: relative;
         display: flex;
         align-items: center;
-        width: 100%;
-        height: 25px;
+        height: 8%;
         margin-bottom: 2%;
         .wicon {
             object-fit: contain;
@@ -46,6 +47,7 @@ body {
             font-family: Arial, Helvetica, sans-serif;
             color: white;
         }
+
     }
 
     .innerwindow {
@@ -80,6 +82,7 @@ body {
             }
 
             img {
+                cursor: pointer;
                 margin-left: auto;
                 filter: drop-shadow(0px 0px 5px black);
                 height: 100%;
@@ -93,6 +96,7 @@ body {
             overflow-y: scroll;
             width: 100%;
             height: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
     }
 
@@ -109,13 +113,35 @@ body {
     box-shadow: 0px 0px 8px 3px rgba(255, 255, 255, 0.452);
     position: relative;
 
+    .fileicon {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 7%;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        img {
+            object-fit: contain;
+            width: 100%;
+        }
+        p {
+            filter: drop-shadow(0px 0px 3px rgb(255, 255, 255));
+            font-size: small;
+            line-break: anywhere;
+        }
+    }
+
     .hotbar {
         width: 100%;
-        border-top: 1px solid rgb(0, 0, 0);
+        border-top: 1px solid rgb(51, 51, 51);
         height: 8%;
         margin-top: auto;
         backdrop-filter: blur(3px);
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.459) 0%, rgba(0,0,0,0) 20%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.459) 0%,rgba(255, 255, 255, 0.459) 10%, rgba(255, 255, 255, 0.295) 20%, rgba(0,0,0,0) 80%);
         display: flex;
         align-items: center;
 
@@ -130,7 +156,7 @@ body {
             background: linear-gradient(130deg, rgba(255, 255, 255, 0.5) 0%, rgba(0,0,0,0) 40%), linear-gradient(310deg, rgba(255, 255, 255, 0.5) 0%, rgba(0,0,0,0) 40%);
             box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.726) inset;
             aspect-ratio: 1.5/1;
-            border: .5px solid rgb(0, 0, 0);
+            border: .5px solid rgb(51, 51, 51);
             border-radius: 3px;
             height: 100%;
             display: flex;
@@ -142,6 +168,7 @@ body {
                 height: 120%;
             }
             img {
+                filter: drop-shadow(0px 0px 3px black);
                 height: 100%;
                 object-fit: contain;
             }
@@ -189,7 +216,7 @@ body {
 
         .home {
             width: 2%;
-            border-left: 1px solid black;
+            border-left: 1px solid rgb(51, 51, 51);
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.438) 0%, rgba(0,0,0,0) 40%);
             height: 100%;
             box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.534) inset;
