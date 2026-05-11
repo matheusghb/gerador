@@ -80,13 +80,15 @@ body {
             div::first-letter {
                 text-decoration: underline;
             }
-
-            img {
-                cursor: pointer;
+            a {
+                width: fit-content;
+                height: 100%;
                 margin-left: auto;
                 filter: drop-shadow(0px 0px 5px black);
-                height: 100%;
-                object-fit: contain;
+                img {
+                    height: 100%;
+                    object-fit: contain;
+                }
             }
 
         }
