@@ -11,7 +11,7 @@ btn.addEventListener("click",function() {
 
         const t = setInterval(function() {
             duration.value = audio.currentTime;
-            console.log(duration.value,audio.currentTime)
+            defcurrent()
             if(btn.innerHTML=="play_arrow"){
                 clearInterval(t)
             }
@@ -26,12 +26,22 @@ btn.addEventListener("click",function() {
 
 duration.addEventListener("input", function() {audio.currentTime = this.value})
 
-setInterval(function() {
-    document.getElementById("current").innerHTML = Math.trunc(audio.currentTime/60)+":"+Math.abs(Math.ceil((Math.trunc(audio.currentTime/60)-audio.currentTime/60)*60))
+function defcurrent () {
+    let m = (Math.trunc(audio.currentTime/60)).toString()
+    let s = (Math.abs(Math.ceil((Math.trunc(audio.currentTime/60)-audio.currentTime/60)*60))).toString()
+
+    if (m.length < 2) {
+        m = "0"+m
+    }
+    if (s.length < 2) {
+        s = "0"+s
+    }
+
+    document.getElementById("current").innerHTML = m+":"+s
     if (audio.duration == audio.currentTime) {
         btn.innerHTML = "play_arrow"
     }
-},10)
+}
 
 audio.addEventListener("loadedmetadata",function () {
     duration.max = audio.duration
@@ -45,32 +55,41 @@ function contacts() {
     const contacts = document.getElementsByClassName("con")[0]    
 
     friends_list = [
-        ["https://mspfa.com/?s=47894&p=160","namhjkahsdjkahsdjkashdfdsnjkfnsjksdhfjhsdjkfhksjdhfiuksdhfiuhsihfddfnwjfksde","/assets/izard.png","hjfbsjhdhfjkshfjkhsdjkfhsjkhfdjkdshjfkhkdshkhjkahsjkdhjkahsduiahsdiuhauhdsiahsiudh"]    
+        // [ link, name, img ]
+        [null, 'Kdr', "/assets/pedro.png"],
+        ['https://www.tiktok.com/@glads_s2?_r=1&_t=ZS-96FjhGfPaMc', 'Glads', '/assets/glads.png'],
+        ['https://nyakkomeowpage.straw.page/', 'Melyssa', '/assets/mel.png'],
+        [null, 'Ka', '/assets/ka.png'],
+        ['https://x.com/78calibarn', 'Hazel', '/assets/hazel.jpg'],
+        ['https://bsky.app/profile/swiperson.bsky.social', 'Ravee', '/assets/ravee.png'],
+        ['https://pt.pronouns.page/u/Orimyo', 'Myo', '/assets/myo.png'],
+        ['https://x.com/ImTorment', "Torment", '/assets/torment.png'],
+        ['https://duskdishwasher.neocities.org/','Dee',"/assets/dee.png"]
+        //["https://www.tiktok.com/@b0neyardd?_r=1&_t=ZN-96FoQ3poKGc", ]
     ]
 
     for (let i = 0; i < friends_list.length;i++) {
 
         const div = document.createElement("a")
         div.className = "cell"
-        div.href = friends_list[i][0]
+        if (friends_list[i][0] != null) {
+            div.href = friends_list[i][0]
+            div.target = "_blank"
+        }
         
-        const img = document.createElement("div")
-        img.className = "img"
-        img.style.backgroundImage = "url("+friends_list[i][2]+")"
+        const imgdiv = document.createElement("div")
+        imgdiv.className = "imgdiv"
 
-        const txtdiv = document.createElement("div")
-        txtdiv.className = "txt"
+        const img = document.createElement("img")
+        img.src = friends_list[i][2]
+
+        imgdiv.append(img)
 
         const name = document.createElement("h1")
         name.className = "name"
         name.innerHTML = friends_list[i][1]
 
-        const quote = document.createElement("p")
-        quote.className = "quote"
-        quote.innerHTML = friends_list[i][3]
-
-        txtdiv.append(name,quote)
-        div.append(img,txtdiv)
+        div.append(imgdiv,name)
         contacts.append(div)
 
     }
