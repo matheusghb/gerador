@@ -97,6 +97,15 @@ body {
             width: 100%;
             height: 100%;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 4%;
+            div {
+                margin-left: 2%;
+            }
+            p {
+                margin-left: 6%;
+            }
         }
     }
 
@@ -232,4 +241,23 @@ body {
 
     }
 
+}
+
+.mobile-tip {
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+
+    body {
+        background: white;
+    }
+
+  .ui {
+    display: none;
+  }
+  .mobile-tip {
+    display: inline;
+    margin: auto;
+  }
 }

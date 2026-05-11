@@ -716,7 +716,26 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+.mobile-tip {
+    display: none
+}
+
+@media screen and (max-width: 800px) {
+    
+    body {
+        background: white;
+    }
+
+    .bg, .display {
+        display: none;
+    }
+
+    .mobile-tip {
+        display: inline;
+        margin: auto;
+    }
+
+    /*
     * {
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -1007,5 +1026,5 @@ body {
     to {
         opacity: 1;
         translate: 0px 0px;
-    }
+    } */
 }

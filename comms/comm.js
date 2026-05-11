@@ -31,13 +31,11 @@ l = [ //outer edge, holds the types
     ]
 ]
 
-const display = window.getComputedStyle(document.getElementsByClassName("display")[0]).getPropertyValue("display") //i dont want to explain this one
-
 clist = []
 
 buildprices()
 
-if (document.getElementsByClassName("windowtitle")) {
+/* if (document.getElementsByClassName("windowtitle")) {
     const wtitle = document.getElementsByClassName("windowtitle") // function that makes the windowtitle collapse work
     for (let i = 0; i < wtitle.length; i++) {                     // (changes display to none or flex,
         wtitle[i].addEventListener("click", function() {          // changes the icon from a + to a -)
@@ -51,7 +49,7 @@ if (document.getElementsByClassName("windowtitle")) {
             }
         })
     }    
-}
+} */
 
 
 
@@ -141,17 +139,13 @@ function buildprices() {
             type.appendChild(price)
             numdiv.append(up, down)
             cell.append(type,numdiv,num)
-            if (display == "none") {
-                opt[position+6].appendChild(cell)
-            } else {
-                opt[position].appendChild(cell)
-            }
+            opt[position].appendChild(cell)
             
         }
     }
 }
 
-function valuecleanup(entity,direction,down) { // this is embarassing
+function valuecleanup(entity,direction,down) { 
     if (direction == true) {
 
         entity.innerHTML = Number(entity.innerHTML)+1
@@ -243,11 +237,7 @@ function calc () {
 
     }
 
-    if (display == "none") {
-        const uhh = document.getElementsByClassName("values")[1]
-    } else {
-        const uhh = document.getElementsByClassName("values")[0]
-    }
+    const uhh = document.getElementsByClassName("values")[0]
 
     
     if (totalprice > 0) {
@@ -314,15 +304,11 @@ function cycle(subject,value) {
     }
 }
 
-document.getElementsByClassName("material-symbols-sharp list")[0].addEventListener("click", function () {
+/* document.getElementsByClassName("material-symbols-sharp list")[0].addEventListener("click", function () {
 
     console.log(document.getElementsByClassName("calc")[1])
 
-    if (display == "none") {
-        const divc = document.getElementsByClassName("calc")[1]
-    } else {
-        const divc = document.getElementsByClassName("calc")[0]
-    }
+    const divc = document.getElementsByClassName("calc")[0]
 
     if (divc.style.display == "flex") {
         divc.style.display = "none"
@@ -330,7 +316,7 @@ document.getElementsByClassName("material-symbols-sharp list")[0].addEventListen
         divc.style.display = "flex"
     }  
 
-})    
+}) */   
 
 const menu = document.getElementsByClassName("topic")
 for (let i = 0; i < menu.length;i++) {

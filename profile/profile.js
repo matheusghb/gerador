@@ -2,6 +2,8 @@ const btn = document.getElementById("play")
 const audio = document.getElementsByTagName("audio")[0]
 const duration = document.getElementById("duration")
 
+contacts()
+
 btn.addEventListener("click",function() {
 
     if (btn.innerHTML == "pause") {
@@ -49,8 +51,6 @@ audio.addEventListener("loadedmetadata",function () {
     document.getElementById("total").innerHTML = Math.trunc(audio.duration/60)+":"+Math.abs(Math.ceil((Math.trunc(audio.duration/60)-audio.duration/60)*60))
 })
 
-contacts()
-
 function contacts() {
     const contacts = document.getElementsByClassName("con")[0]    
 
@@ -64,7 +64,8 @@ function contacts() {
         ['https://bsky.app/profile/swiperson.bsky.social', 'Ravee', '/assets/ravee.png'],
         ['https://pt.pronouns.page/u/Orimyo', 'Myo', '/assets/myo.png'],
         ['https://x.com/ImTorment', "Torment", '/assets/torment.png'],
-        ['https://duskdishwasher.neocities.org/','Dee',"/assets/dee.png"]
+        ['https://duskdishwasher.neocities.org/','Dee',"/assets/dee.png"],
+        [null,'Dai','/assets/dai.png'],
         //["https://www.tiktok.com/@b0neyardd?_r=1&_t=ZN-96FoQ3poKGc", ]
     ]
 
@@ -96,5 +97,12 @@ function contacts() {
 
 }
 
+const maindiv = document.getElementsByClassName("second-container")[0]
 
+document.getElementById("discord").addEventListener("click", function() {
 
+    navigator.clipboard.writeText("jujuba83")
+
+    window.alert("Discord usernam has been copied to the clipboard!")
+
+})

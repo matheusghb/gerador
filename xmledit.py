@@ -21,7 +21,7 @@ txt = ''.join(xml.readlines())
 txt = txt[:txt.find("</channel>")]
 
 descvalue = '''
-First time trying actual rss! Main page done but no mobile view.
+Main and profile pages done, comms needing to be updated. May attempt rss updates through the neocities API. No mobile view tho...
             '''
 
 l = [
