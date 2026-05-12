@@ -5,7 +5,7 @@
   <link>https://jujuba83c.neocities.org/</link>
   <description>Just a personal blog! And stuff!</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 11 May 2026 16:55:23 -0300</lastBuildDate>
+  <lastBuildDate>Mon, 11 May 2026 19:39:30 -0300</lastBuildDate>
 
          <item>
            <title>Thu, 30/4/2026</title>
@@ -25,6 +25,17 @@ First time trying actual rss! Main page done but no mobile view.
            <description>
 
 Main and profile pages done, comms needing to be updated. May attempt rss updates through the neocities API. No mobile view tho...
+            
+            </description>
+       </item>
+
+         <item>
+           <title>Mon, 11/5/2026</title>
+           <link>https://jujuba83c.neocities.org</link>
+           <pubDate>Mon, 11 May 2026 19:39:30 -0300</pubDate>
+           <description>
+
+.mp3 problem solved lol
             
             </description>
        </item>
