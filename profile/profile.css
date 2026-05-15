@@ -351,13 +351,7 @@ html, body {
             flex-direction: column;
             border-left: 2px solid var(--cor3);
             flex: 1.7;
-            .commentbox {
-              height: 100%; 
-              background-image: url(https://cdn11.bigcommerce.com/s-3pbmh1zmv/products/3056/images/3330/556-label__16698.1739388174.386.513.png?c=1);             
-              background-position: center;
-              background-repeat: no-repeat no-repeat;
-              background-size: 80%;
-            }
+            overflow-y: auto;
           }
         }
 

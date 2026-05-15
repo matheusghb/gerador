@@ -2,43 +2,47 @@
  <channel>
   
   <title>Sheepie's blog</title>
-  <link>https://jujuba83c.neocities.org/</link>
+  <link>https://juliet83c.neocities.org/</link>
   <description>Just a personal blog! And stuff!</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 11 May 2026 19:39:30 -0300</lastBuildDate>
-
-         <item>
-           <title>Thu, 30/4/2026</title>
-           <link>https://jujuba83c.neocities.org</link>
-           <pubDate>Thu, 30 Apr 2026 23:12:45 -0300</pubDate>
-           <description>
-
-First time trying actual rss! Main page done but no mobile view.
-            
-            </description>
-       </item>
-
-         <item>
-           <title>Mon, 11/5/2026</title>
-           <link>https://jujuba83c.neocities.org</link>
-           <pubDate>Mon, 11 May 2026 16:55:23 -0300</pubDate>
-           <description>
-
-Main and profile pages done, comms needing to be updated. May attempt rss updates through the neocities API. No mobile view tho...
-            
-            </description>
-       </item>
-
-         <item>
-           <title>Mon, 11/5/2026</title>
-           <link>https://jujuba83c.neocities.org</link>
-           <pubDate>Mon, 11 May 2026 19:39:30 -0300</pubDate>
-           <description>
-
-.mp3 problem solved lol
-            
-            </description>
-       </item>
+  <lastBuildDate>Fri, 14 May 2026 20:40:4 180</lastBuildDate>
+    
+<item>
+  <title>Fri, 14/4/2026</title>
+  <link>https://juliet83c.neocities.org/feed.xml</link>
+  <pubDate>Fri, 14 May 2026 20:40:4 180</pubDate>
+  <description>Did a comment box for the profile page.</description>
+</item>
+<item>
+  <title>Thu, 13/4/2026</title>
+  <link>https://juliet83c.neocities.org/feed.xml</link>
+  <pubDate>Thu, 13 May 2026 19:37:39 180</pubDate>
+  <description>Found out how to use the API. :D</description>
+</item>
+<item>
+  <title>Thu, 13/4/2026</title>
+  <link>https://juliet83c.neocities.org/feed.xml</link>
+  <pubDate>Thu, 13 May 2026 19:24:16 180</pubDate>
+  <description>aabluubababskbla</description>
+</item>
+<item>
+  <title>Mon, 11/5/2026</title>
+  <link>https://juliet83c.neocities.org/</link>
+  <pubDate>Mon, 11 May 2026 19:39:30 -0300</pubDate>
+  <description>.mp3 problem solved lol</description>
+</item>
+<item>
+  <title>Mon, 11/5/2026</title>
+  <link>https://juliet83c.neocities.org/</link>
+  <pubDate>Mon, 11 May 2026 16:55:23 -0300</pubDate>
+  <description>Main and profile pages done, comms needing to be updated. May attempt rss updates through the neocities API. No mobile view tho...</description>
+</item>
+<item>
+  <title>Thu, 30/4/2026</title>
+  <link>https://juliet83c.neocities.org/</link>
+  <pubDate>Thu, 30 Apr 2026 23:12:45 -0300</pubDate>
+  <description>First time trying actual rss! Main page done but no mobile view.</description>
+</item>
 
   </channel>
 </rss>
