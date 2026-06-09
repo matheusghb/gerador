@@ -270,10 +270,62 @@ body {
     .note {
         position: absolute;
         aspect-ratio: 1/1.1;
-        width: 65%;
-        right: 0px;
+        width: 55%;
+        right: 10%;
+        bottom: 20%;
         z-index: 0;
-        background-color: rgb(233, 211, 12);
+        border-radius: 10px;
+        box-shadow: 0px 8px 9px 1px black;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%,rgb(219, 210, 124) 100%);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .notebar {
+            flex: 1;
+            z-index: 1;
+            background-image: linear-gradient(to bottom, rgb(146, 84, 57) 0%, rgb(95, 52, 34) 60%, rgb(70, 36, 22) 100%);
+            box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.925);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: white;
+            font-weight: bolder;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 0px 0px 3px black;
+
+            div {
+
+                font-size: 3vw;
+                border: 1px solid white;
+                padding: 3% 5% 3% 7%;
+                border-radius: 20px 0px 0px 20px;
+
+            }
+
+        }
+
+        .content {
+            font-family: Arial, Helvetica, sans-serif;
+            z-index: 0;
+            flex: 5;
+            overflow-y: auto;
+            margin-left: 8%;
+            border-left: 2px solid rgb(189, 103, 100);
+            padding-left: 4%;
+            padding-top: 8%;
+
+            div {
+                margin-bottom: 5%;
+                
+                p {
+                    margin-left: 7%;
+                }
+            }
+
+        }
+
+
     }
 
     .approw {

@@ -13,7 +13,6 @@ function edittimendate(time, date) {
     l = [d.getDate(),(d.getMonth())+1,d.getFullYear(),d.getHours(),d.getMinutes()]
 
     for (let i = 0; i < l.length; i++) {
-        console.log(l[i])
         l[i] = l[i].toString()
         if (l[i].length < 2) {
             l[i] = "0"+l[i]
@@ -42,38 +41,44 @@ async function loadxml() {
 function renderTable() {
 
     const diary = document.getElementById("diary")
-    const cont = diary.querySelector(".content")
-
+    const cont = document.getElementsByClassName("content")
 
     if (!xmldoc) return
     const items = xmldoc.getElementsByTagName("item")
-    for (let i = 0; i < items.length; i++) {
 
-        let title = ''
-        let desc = ''
-        
-        const itemval = items[i].children
+    for (let i = 0; i < cont.length; i++) {
 
-        for (let i = 0; i < itemval.length; i++) {
+        for (let item = 0; item < items.length; item++) {
 
-            switch (itemval[i].tagName) {
-                case ("title"):
-                    title = itemval[i].innerHTML
-                    break
-                case ("description"):
-                    desc = itemval[i].innerHTML
+            let title = ''
+            let desc = ''
+            
+            const itemval = items[item].children
+
+            for (let value = 0; value < itemval.length; value++) {
+
+                switch (itemval[value].tagName) {
+                    case ("title"):
+                        title = itemval[value].innerHTML
+                        break
+                    case ("description"):
+                        desc = itemval[value].innerHTML
+                }
             }
+            
+            const div = document.createElement("div")
+            const htitle = document.createElement("h3")
+            const pdesc = document.createElement("p")
+
+            htitle.innerHTML = title
+            pdesc.innerHTML = desc
+
+            div.append(htitle,pdesc)
+            cont[i].append(div)
         }
-        
-        const div = document.createElement("div")
-        const htitle = document.createElement("h3")
-        const pdesc = document.createElement("p")
 
-        htitle.innerHTML = title
-        pdesc.innerHTML = desc
-
-        div.append(htitle,pdesc)
-        cont.append(div)
     }
+
+
 }
 
