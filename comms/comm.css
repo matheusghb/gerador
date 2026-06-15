@@ -697,23 +697,7 @@ body {
     background-size: 100%;
 }
 
-.canva {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(2px);
-    img {
-        margin: auto;
-        height: 80%;
-        width: 80%;
-        object-fit: contain;
-        animation: imgappear .4s ease-out 1 forwards;
-    }
-}
+
 
 .mobile-tip {
     display: none

@@ -1,81 +1,125 @@
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
     padding: 0px;
     margin: 0px;
 }
 
-html, body {
+:root {
 
-    height: 100%;
+    --bglightcolor: rgb(33, 113, 150);
+    --bgdarkcolor: rgb(6, 61, 124);
+    --bordercolors: rgb(0, 45, 87);
+    --infobg: rgb(247, 247, 174);
 
 }
 
-button {
-
-    color: black;
-
+@font-face {
+    font-family: spinner;
+    src: url(/assets/spinner-rack-bb.otf);
 }
 
 body {
 
-    display: flex;
-    justify-content: space-evenly;
+    background-color: rgb(223, 223, 223);
 
 }
 
-.calculator {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: safe;
-    aspect-ratio: 1/1;
-    border: 2px solid white;
-    width: 30%;
+.headerbackdrop {
 
-    * {
-        flex: 1;
-    }
-
-    #contents {
-
-        margin: 10%;
-        flex: 7;
-        display: flex;
-        border: 1px solid white;
-
-    }
+    background-image: radial-gradient(circle, var(--bglightcolor) 0%, var(--bgdarkcolor) 100%);
+    height: 20vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.445) inset;
+    border-bottom: 4px solid var(--bordercolors);
 
 }
 
-.titlebar {
-
-    padding: 4%;
-
-}
-
-.options {
-
+.display {
+    
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1/.55;
+    margin-inline: 7%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: none;
+    border-top: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.575);
     display: flex;
     flex-direction: column;
-    width: 50%;
-    overflow: hidden;
 
-    .type {
+    header {
 
-        flex: 1;
+        background-image: radial-gradient(circle, var(--bglightcolor) 0%, var(--bgdarkcolor) 100%);
+        height: 20vh;
         display: flex;
-        flex-direction: column;
+        box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.445) inset;
+        border-bottom: 4px solid var(--bordercolors);
 
-        div {
+    }
+
+    .info {
+
+        margin-top: 2%;
+        border: 6px solid var(--bordercolors);
+
+        .infodiv {
+
+            height: 10%;
             display: flex;
+            flex-direction: column;
+            padding: 2%;
+
+            .title {
+
+                flex: 1;
+
+            }
+
+            .content {
+
+                display: flex;
+                flex: 9;
+                overflow: hidden;
+
+                * {
+
+                    flex: 1;
+
+                }
+
+                img {
+
+                    object-fit: contain;
+
+                }
+
+
+            }
+
+        }
+
+
+    }
+
+    .options {
+
+        .type {
 
             .image {
-                width: 100%;
+
+                width: 30%;
+                
                 img {
+
                     object-fit: contain;
                     width: 100%;
+
                 }
+
             }
+
         }
 
     }

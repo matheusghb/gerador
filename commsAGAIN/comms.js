@@ -146,94 +146,102 @@ const commoptions = {
 
 }
 
-const opdiv = document.getElementsByClassName("options")[0]
-const contents = document.getElementById("contents")
+const opdivclass = document.getElementsByClassName("options")
+const contentsclass = document.getElementsByClassName("content")
+const cvalueclass = document.getElementsByClassName("calcvalue")
 
-for (const [key,values] of Object.entries(commoptions)) {
+for (let i = 0; i < opdivclass.length; i++) {
 
-    const div = document.createElement("div")
-    div.className = "type"
-    div.id = (key.replace("_","")).toLowerCase()+"div"
-    
-    const innerdiv = document.createElement("div")
+    const opdiv = opdivclass[i]
 
-    const p = document.createElement("p")
-    p.innerHTML = key.replace("_"," ")
-    div.append(p)
+    for (const [key,values] of Object.entries(commoptions)) {
 
-    const valuearray = Object.keys(values.values)
-
-    const imgdiv = document.createElement("div")
-    imgdiv.className = "image"
-
-    values.imagem.forEach((imgsrc) => {
-
-        const img = document.createElement("img")
-        img.src = imgsrc
-        imgdiv.append(img)
-
-    })
-
-    innerdiv.append(imgdiv)
-
-    for (let i = 0; i < valuearray.length;i++){
-
-        const currentvalue = values.values[valuearray[i]]
-
-        const valuediv = document.createElement("div") 
-        valuediv.id = div.id.slice(0,(div.id.length)-3)+"_"+valuearray[i]
-        valuediv.className = "option"
-
-        const title = document.createElement("h1")
-        title.className = "title"
-        title.innerHTML = valuearray[i].replace("_"," ")
-
-        const infodiv = document.createElement("div")
-
-        const price = document.createElement("p")
-        price.className = "price"
-        price.innerHTML = currentvalue.price
-
-        const qntd = document.createElement("p")
-        qntd.className = "qntd"
-        qntd.innerHTML = "x"+currentvalue.qntd
-
-        const divarrow = document.createElement("div")
+        const div = document.createElement("div")
+        div.className = "type"
+        div.id = (key.replace("_","")).toLowerCase()+"div"
         
-        const up = document.createElement("button")
-        up.innerHTML = "^"
+        const innerdiv = document.createElement("div")
 
-        const down = document.createElement("button")
-        down.innerHTML = "v"
+        const p = document.createElement("p")
+        p.innerHTML = key.replace("_"," ")
+        div.append(p)
 
-        up.onclick = () => {
+        const valuearray = Object.keys(values.values)
 
-            modifyqntd(1,valuediv,currentvalue)
+        const imgdiv = document.createElement("div")
+        imgdiv.className = "image"
+
+        values.imagem.forEach((imgsrc) => {
+
+            const img = document.createElement("img")
+            img.className = "zoom"
+            img.src = imgsrc
+            imgdiv.append(img)
+
+        })
+
+        div.append(imgdiv)
+
+        for (let i = 0; i < valuearray.length;i++){
+
+            const currentvalue = values.values[valuearray[i]]
+
+            const valuediv = document.createElement("div") 
+            valuediv.id = div.id.slice(0,(div.id.length)-3)+"_"+valuearray[i]
+            valuediv.className = "option"
+
+            const title = document.createElement("h1")
+            title.className = "title"
+            title.innerHTML = valuearray[i].replace("_"," ")
+
+            const infodiv = document.createElement("div")
+
+            const price = document.createElement("p")
+            price.className = "price"
+            price.innerHTML = currentvalue.price
+
+            const qntd = document.createElement("p")
+            qntd.className = "qntd"
+            qntd.innerHTML = "x"+currentvalue.qntd
+
+            const divarrow = document.createElement("div")
+            
+            const up = document.createElement("button")
+            up.innerHTML = "^"
+
+            const down = document.createElement("button")
+            down.innerHTML = "v"
+
+            up.onclick = () => {
+
+                modifyqntd(1,valuediv,currentvalue)
+
+            }
+
+            down.onclick = () => {
+
+                modifyqntd(-1,valuediv,currentvalue)
+
+            }
+
+            divarrow.append(up,down)
+
+            infodiv.append(price,divarrow,qntd)
+            valuediv.append(title,infodiv)
+
+            innerdiv.append(valuediv)
 
         }
 
-        down.onclick = () => {
+        div.append(innerdiv)
+        
+        const info = document.createElement("p")
+        info.innerHTML = values.info
+        div.append(info)
 
-            modifyqntd(-1,valuediv,currentvalue)
-
-        }
-
-        divarrow.append(up,down)
-
-        infodiv.append(price,divarrow,qntd)
-        valuediv.append(title,infodiv)
-
-        innerdiv.append(valuediv)
+        opdiv.append(div)
 
     }
-
-    div.append(innerdiv)
-    
-    const info = document.createElement("p")
-    info.innerHTML = values.info
-    div.append(info)
-
-    opdiv.append(div)
 
 }
 
@@ -253,28 +261,33 @@ function modifyqntd(num,div,currentvalue) {
             div.append(x)
         }
 
-
         currentvalue.qntd += num
         div.querySelector(".qntd").innerHTML = "x"+(currentvalue.qntd)
 
-        if (currentvalue.qntd > 0) {
+        for (let i = 0; i < contentsclass.length; i++) {
 
-            if (contents.querySelector("#"+div.id)) {
-               
-                contents.querySelector("#"+div.id).innerHTML = div.id.replaceAll("_"," ")+" x"+currentvalue.qntd
+            const contents = contentsclass[i]
+
+            if (currentvalue.qntd > 0) {
+
+                if (contents.querySelector("#"+div.id)) {
+                
+                    contents.querySelector("#"+div.id).innerHTML = div.id.replaceAll("_"," ")+" x"+currentvalue.qntd
+
+                } else {
+                    console.log(div.id)
+                    const calcadd = document.createElement("p")
+                    calcadd.id = div.id
+                    calcadd.innerHTML = (div.id).replaceAll("_"," ")+" x1"
+                    contents.append(calcadd)
+                }
 
             } else {
-                console.log(div.id)
-                const calcadd = document.createElement("p")
-                calcadd.id = div.id
-                calcadd.innerHTML = (div.id).replaceAll("_"," ")+" x1"
-                contents.append(calcadd)
+
+                contents.querySelector("#"+div.id).remove()
+                div.querySelector(".clear").remove()
+
             }
-
-        } else {
-
-            contents.querySelector("#"+div.id).remove()
-            div.querySelector(".clear").remove()
 
         }
 
@@ -310,7 +323,32 @@ function calcvalue() {
 
     }
 
-    document.getElementById("calcvalue").innerHTML = ((sum > 0) ? "Total of "+sum+" USD." : "You haven't added anything!")
+    for (let i = 0; i < cvalueclass; i++) {
 
+        cavlueclass[i].innerHTML = ((sum > 0) ? "Total of "+sum+" USD." : "You haven't added anything!")
+
+    }
 
 }
+
+const img = document.getElementsByClassName("zoom") // function that does the makeship zoom on any chosen images
+for (let i = 0; i < img.length; i++) {              // (has the zoom class)
+    img[i].addEventListener("click", function() {
+        zoom(this.src)
+    })
+}
+
+function zoom(imgsrc) { // Creates a fixed div ontop of everything that goes away if clicked
+    const canvas = document.createElement("div")
+    const img = document.createElement("img")
+    
+    canvas.className = "canva"
+    img.id = "canvaimg"
+    img.src = imgsrc
+ 
+    canvas.appendChild(img)
+    canvas.addEventListener("click", function() {
+        this.remove()
+    })
+    document.getElementsByTagName("body")[0].appendChild(canvas)
+} 

@@ -51,30 +51,6 @@ buildprices()
     }    
 } */
 
-
-
-const img = document.getElementsByClassName("zoom") // function that does the makeship zoom on any chosen images
-for (let i = 0; i < img.length; i++) {              // (has the zoom class)
-    img[i].addEventListener("click", function() {
-        zoom(this.src)
-    })
-}
-
-function zoom(imgsrc) { // Creates a fixed div ontop of everything that goes away if clicked
-    const canvas = document.createElement("div")
-    const img = document.createElement("img")
-    
-    canvas.className = "canva"
-    img.id = "canvaimg"
-    img.src = imgsrc
- 
-    canvas.appendChild(img)
-    canvas.addEventListener("click", function() {
-        this.remove()
-    })
-    document.getElementsByTagName("body")[0].appendChild(canvas)
-}
-
 function buildprices() {
 
     const opt = document.getElementsByClassName("option")
