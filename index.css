@@ -354,15 +354,15 @@ body {
 
         img {
             aspect-ratio: 1;
-            border: 2px solid white;
+            border: 1px solid white;
             width: 100%;
-            padding: 15%;
+            padding: 11%;
             object-fit: contain;
             border-radius: 10px;
             backdrop-filter: blur(3px);
-            box-shadow: 0px 0px 5px 1px white inset;
+            box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.568) inset;
             filter: drop-shadow(0px 0px 5px black);
-            background-color: rgba(255, 255, 255, 0.466);
+            background-color: rgba(255, 255, 255, 0.151);
         }
         p {
             margin-top: 3%;

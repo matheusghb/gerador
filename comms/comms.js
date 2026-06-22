@@ -48,7 +48,7 @@ const commoptions = {
                 qntd: 0,
             }
         },
-        info:'Isso é o info do sketch',
+        info:'Can either be digital or on paper!! I dont do shipments tho :(',
         imagem: ["/assets/sugar.jpg"]
     },
     Full_color: {
@@ -67,7 +67,7 @@ const commoptions = {
             }
         },
         mult: .50,
-        info: 'Isso é o info do full color',
+        info: 'No shadows and whatnot, additional characters have a 50% discount',
         imagem: ["/assets/gus.png"]
     },
     Rendered: {
@@ -86,13 +86,13 @@ const commoptions = {
             }
         },
         mult: .75,
-        info: 'Isso é o info do rendered',
+        info: 'Additional characters have a 25% discount!',
         imagem: ["/assets/alice.jpg"]
     },
     Icons: {
         values: {
             SKETCH: {
-                price: 1,
+                price: 3,
                 qntd: 0,
             },
             TORSO_PIECE: {
@@ -104,7 +104,7 @@ const commoptions = {
                 qntd: 0,
             }
         },
-        info: 'Isso é o info do icons',
+        info: 'Same thing as head pieces from the options above, but without the discounts.',
         imagem: ["/assets/sugaricon.png","/assets/idontremembertbh.png"]
     },
     Homestuck: {
@@ -126,29 +126,55 @@ const commoptions = {
                 qntd: 0,
             }
         },
-        info: 'Isso é o info do homestuck',
+        info: 'Very negotiable...',
         imagem: ["/assets/norawalk.gif"]
     },
     Ref: {
         values: {
             SIMPLE_REF: {
-                price: 20,
+                price: 30,
                 qntd: 0,
             },
             DETAILED_REF: {
-                price: 30,
+                price: 50,
                 qntd: 0,
             }
         },
-        info: 'Isso é o info do refs',
+        info: 'Having a ref yourself gives a 50% discount!',
         imagem: ["/assets/ref.png"]
     }
 
 }
 
-const opdivclass = document.getElementsByClassName("options")
-const contentsclass = document.getElementsByClassName("content")
-const cvalueclass = document.getElementsByClassName("calcvalue")
+let opdivclass
+let contentsclass
+let cvalueclass
+let summary
+let calcbutton
+
+window.onload = () => {
+
+opdivclass = document.getElementsByClassName("options")
+contentsclass = document.getElementsByClassName("calccontent")
+cvalueclass = document.getElementsByClassName("calcvalue")
+summary = document.getElementsByClassName("summary")
+calcbutton = document.getElementsByClassName("calcbutton")
+
+for (let i = 0; i < calcbutton.length; i++) {
+
+    calcbutton[i].onclick = () => {
+
+        for (let v = 0; v < calcbutton.length; v++) {
+
+            calcbutton[v].children[0].innerText = (calcbutton[v].children[0].innerText == "arrow_drop_up") ? "arrow_drop_down" : "arrow_drop_up"
+            contentsclass[v].style.display = (contentsclass[v].style.display == "flex") ? "none" : "flex"
+            cvalueclass[v].style.display = (cvalueclass[v].style.display == "flex") ? "none" : "flex"
+
+        }
+
+    }
+
+} 
 
 for (let i = 0; i < opdivclass.length; i++) {
 
@@ -158,13 +184,7 @@ for (let i = 0; i < opdivclass.length; i++) {
 
         const div = document.createElement("div")
         div.className = "type"
-        div.id = (key.replace("_","")).toLowerCase()+"div"
-        
-        const innerdiv = document.createElement("div")
-
-        const p = document.createElement("p")
-        p.innerHTML = key.replace("_"," ")
-        div.append(p)
+        div.id = (key.replace("_","")).toLowerCase()+"div"+opdiv.id
 
         const valuearray = Object.keys(values.values)
 
@@ -182,12 +202,23 @@ for (let i = 0; i < opdivclass.length; i++) {
 
         div.append(imgdiv)
 
+        const optionsdiv = document.createElement("div")
+        optionsdiv.className = "optionsdiv"
+
+        const p = document.createElement("p")
+        p.innerHTML = key.replace("_"," ")
+        p.className = "typetitle"
+        optionsdiv.append(p)
+
+        const opdata = document.createElement("div")
+        opdata.className = "opdata"
+
         for (let i = 0; i < valuearray.length;i++){
 
             const currentvalue = values.values[valuearray[i]]
 
             const valuediv = document.createElement("div") 
-            valuediv.id = div.id.slice(0,(div.id.length)-3)+"_"+valuearray[i]
+            valuediv.id = div.id.slice(0,div.id.indexOf("div"))+"_"+valuearray[i]
             valuediv.className = "option"
 
             const title = document.createElement("h1")
@@ -198,19 +229,22 @@ for (let i = 0; i < opdivclass.length; i++) {
 
             const price = document.createElement("p")
             price.className = "price"
-            price.innerHTML = currentvalue.price
+            price.innerHTML = currentvalue.price+"$"
 
             const qntd = document.createElement("p")
             qntd.className = "qntd"
             qntd.innerHTML = "x"+currentvalue.qntd
 
             const divarrow = document.createElement("div")
+            divarrow.className = "arrow"
             
-            const up = document.createElement("button")
-            up.innerHTML = "^"
+            const up = document.createElement("div")
+            up.className = "material-symbols-rounded"
+            up.innerHTML = "add"
 
-            const down = document.createElement("button")
-            down.innerHTML = "v"
+            const down = document.createElement("div")
+            down.className = "material-symbols-rounded"
+            down.innerHTML = "remove"
 
             up.onclick = () => {
 
@@ -226,22 +260,61 @@ for (let i = 0; i < opdivclass.length; i++) {
 
             divarrow.append(up,down)
 
-            infodiv.append(price,divarrow,qntd)
-            valuediv.append(title,infodiv)
+            valuediv.append(title,price,divarrow,qntd)
 
-            innerdiv.append(valuediv)
+            opdata.append(valuediv)
 
         }
 
-        div.append(innerdiv)
-        
         const info = document.createElement("p")
         info.innerHTML = values.info
-        div.append(info)
+        info.className = "optioninfo"
+        opdata.append(info)
+
+        optionsdiv.append(opdata)
+
+        div.append(optionsdiv)
 
         opdiv.append(div)
 
     }
+
+}
+
+for (let i = 0; i < summary.length; i++) {
+
+    Object.keys(commoptions).forEach((item) => {
+
+        const a = document.createElement("a")
+        a.href = "#"+item.toLowerCase().replaceAll("_","")+"div"+summary[i].id
+        a.innerHTML = item.toUpperCase().replaceAll("_"," ")
+        summary[i].append(a)
+
+    })
+
+}
+
+const img = document.getElementsByClassName("zoom") // function that does the makeship zoom on any chosen images
+for (let i = 0; i < img.length; i++) {              // (has the zoom class)
+    img[i].addEventListener("click", function() {
+        zoom(this.src)
+    })
+}
+
+function zoom(imgsrc) { // Creates a fixed div ontop of everything that goes away if clicked
+    const canvas = document.createElement("div")
+    const img = document.createElement("img")
+    
+    canvas.className = "canva"
+    img.id = "canvaimg"
+    img.src = imgsrc
+ 
+    canvas.appendChild(img)
+    canvas.addEventListener("click", function() {
+        this.remove()
+    })
+    document.getElementsByTagName("body")[0].appendChild(canvas)
+} 
 
 }
 
@@ -250,9 +323,10 @@ function modifyqntd(num,div,currentvalue) {
     if (currentvalue.qntd+num >= 0) {
 
         if (currentvalue.qntd == 0) {
-            const x = document.createElement("p")
-            x.className = "clear"
-            x.innerHTML = "x"
+            const x = document.createElement("div")
+            x.className = "material-symbols-rounded"
+            x.id = "clear"
+            x.innerHTML = "close"
             x.onclick = () => {
 
                 modifyqntd(-(currentvalue).qntd,div,currentvalue)
@@ -275,7 +349,7 @@ function modifyqntd(num,div,currentvalue) {
                     contents.querySelector("#"+div.id).innerHTML = div.id.replaceAll("_"," ")+" x"+currentvalue.qntd
 
                 } else {
-                    console.log(div.id)
+                    
                     const calcadd = document.createElement("p")
                     calcadd.id = div.id
                     calcadd.innerHTML = (div.id).replaceAll("_"," ")+" x1"
@@ -285,7 +359,7 @@ function modifyqntd(num,div,currentvalue) {
             } else {
 
                 contents.querySelector("#"+div.id).remove()
-                div.querySelector(".clear").remove()
+                div.querySelector("#clear").remove()
 
             }
 
@@ -323,32 +397,12 @@ function calcvalue() {
 
     }
 
-    for (let i = 0; i < cvalueclass; i++) {
+    for (let i = 0; i < cvalueclass.length; i++) {
 
-        cavlueclass[i].innerHTML = ((sum > 0) ? "Total of "+sum+" USD." : "You haven't added anything!")
+        cvalueclass[i].innerHTML = ((sum > 0) ? "Total of "+sum+" USD." : "You haven't added anything!")
 
     }
 
 }
 
-const img = document.getElementsByClassName("zoom") // function that does the makeship zoom on any chosen images
-for (let i = 0; i < img.length; i++) {              // (has the zoom class)
-    img[i].addEventListener("click", function() {
-        zoom(this.src)
-    })
-}
 
-function zoom(imgsrc) { // Creates a fixed div ontop of everything that goes away if clicked
-    const canvas = document.createElement("div")
-    const img = document.createElement("img")
-    
-    canvas.className = "canva"
-    img.id = "canvaimg"
-    img.src = imgsrc
- 
-    canvas.appendChild(img)
-    canvas.addEventListener("click", function() {
-        this.remove()
-    })
-    document.getElementsByTagName("body")[0].appendChild(canvas)
-} 
