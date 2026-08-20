@@ -95,11 +95,11 @@ const commoptions = {
                 price: 3,
                 qntd: 0,
             },
-            TORSO_PIECE: {
+            FULL_COLOR: {
                 price: 5,
                 qntd: 0,
             },
-            FULL_PIECE: {
+            RENDERED: {
                 price: 10,
                 qntd: 0,
             }
@@ -159,6 +159,18 @@ contentsclass = document.getElementsByClassName("calccontent")
 cvalueclass = document.getElementsByClassName("calcvalue")
 summary = document.getElementsByClassName("summary")
 calcbutton = document.getElementsByClassName("calcbutton")
+
+const minfo = document.getElementsByClassName("infodropdown")
+
+for (let i = 0; i < minfo.length; i++) {
+
+    minfo[i].onclick = () => {
+
+        minfo[i].querySelector(".infocontent").style.display = (minfo[i].querySelector(".infocontent").style.display == "flex") ? "none" : "flex"
+
+    }
+
+}
 
 for (let i = 0; i < calcbutton.length; i++) {
 
@@ -359,9 +371,14 @@ function modifyqntd(num,div,currentvalue) {
             } else {
 
                 contents.querySelector("#"+div.id).remove()
-                div.querySelector("#clear").remove()
 
             }
+
+        }
+
+        if (currentvalue.qntd < 1) {
+
+            div.querySelector("#clear").remove()
 
         }
 

@@ -64,7 +64,7 @@ async function scrape () {
         title: currentdate[1],
         link: siteurl,
         pubDate: currentdate[0],
-        description: 'Did a comment box for the profile page.'
+        description: 'Redid the comms page and added a mobile view for it and the main page... Not all that stable tho!.'
     })
 
     for (let i = 0; i < channel.item.length; i++) {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYcomms</title>
-    <link rel="stylesheet" href="comms.css">
+    <link rel="stylesheet" href="comm.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -14,25 +14,29 @@
 
         <header>
             <div class="headercontent">
-                <a href="/index.html" class="material-symbols-rounded">
+                <a id="goback" href="/index.html" class="material-symbols-rounded">
                     arrow_back_ios
                 </a>
-                <p>My Comms</p>
+                <p id="title">My Comms</p>
 
                 <div class="calcbutton">
+
                     <div class="material-symbols-rounded">
                         arrow_drop_down
                     </div>
+                    <p>Calc</p>
+
                 </div>
+
             </div>
 
-            <div class="calc">
+            <div class="calcmobile">
                 
                 <div class="calccontent">
 
                 </div>
                 <div class="calcvalue">
-
+                    You haven't added anything!
                 </div>
 
             </div>
@@ -43,6 +47,52 @@
 
         <div class="summary" id="mobile">
             
+        </div>
+
+        <div class="infodropdown">
+            <div class="title">ABOUT THE ARTIST <div class="material-symbols-rounded"> arrow_drop_down </div> </div>
+            <div class="infocontent" id="about">
+                <img src="/assets/izard.png" alt="">
+                <p>She's a sheep that can make drawings! Yeah, she draws. Not that much tho. Paws and all. But she promisses she's very excited to try. See her <a href="https://drive.google.com/drive/folders/1-Ua6st8T22wDCVY4GhZFUrh3GO34kCH5?usp=drive_link" target="_blank">past works!</a><br><br><a href="/profile/profile.html" target="_blank">Learn more</a></p>
+            </div>
+        </div>
+
+        <div class="infodropdown">
+            <div class="title">WILL DO <div class="material-symbols-rounded"> arrow_drop_down </div> </div>
+            <div class="infocontent">
+                    
+                <ul>
+                    <li>Simple backgrounds</li>
+                    <li>Any character that fits a simpler style</li>
+                    <li>REF's</li>
+                    <li>Maaaaybe animations but don't bet on it</li>
+                    <li>Homestuck!</li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="infodropdown">
+            <div class="title">WON'T DO <div class="material-symbols-rounded"> arrow_drop_down </div> </div>
+            <div class="infocontent">
+                <ul>
+                    <li>NSFW <b>(fetishes included)</b></li>
+                    <li>Hate art</li>
+                    <li>Proship</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="infodropdown">
+            <div class="title">DISCLAIMERS <div class="material-symbols-rounded"> arrow_drop_down </div> </div>
+            <div class="infocontent">
+                <ul>
+                    <li><b>PIX</b> or <b>PAYPAL</b> only.</li>
+                    <li>Payments via <b>PIX</b> are always halfed.</li>
+                    <li><b>Full</b> payment upfront.</li>
+                    <li>Prices are very <b>"vibe based"</b>, written prices are only a guide.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="options" id="mobile">
@@ -208,5 +258,5 @@
     </div>
 
 </body>
-<script src="comms.js"></script>
+<script src="comm.js"></script>
 </html>
